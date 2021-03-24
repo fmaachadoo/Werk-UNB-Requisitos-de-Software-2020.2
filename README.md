@@ -1,5 +1,5 @@
 # Projeto Werk
-#### Projeto realizado para a disciplina de Requisitos de Software realizada na Universidade de Brasília (UNB)
+#### Projeto realizado para a disciplina de Requisitos de Software 2020.2 realizada na Universidade de Brasília (UNB)
 ---
 ## Configuração do sistema
 ### Passo a Passo:
