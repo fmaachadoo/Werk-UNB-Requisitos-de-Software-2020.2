@@ -1,5 +1,7 @@
 appdirs==1.4.3
 asgiref==3.3.1
+astroid==2.2.*
+mock==4.0.*
 CacheControl==0.12.6
 certifi==2019.11.28
 chardet==3.0.4
