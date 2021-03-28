@@ -12,12 +12,22 @@ header{
 }
 
 .pillBtn{
-    height: 50px;
-    width: 160px;
-    margin-top: 25px;
+    position: absolute;
+    height: 60px;
+    width: 230px;
+    margin-top: 45px;
     background-color: #40372F;
     color: #F2DCC2;
     border-radius: 100px;
     border:none;
     font-family: 'Rozha-One';
+    font-size: 23px;
+}
+
+.pillBtn:hover{
+    background-color: #8C7B6C;
+}
+
+body{
+    overflow: hidden;
 }
