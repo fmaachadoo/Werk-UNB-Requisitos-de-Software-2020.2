@@ -34,24 +34,6 @@ body{
     background-color: #40372F;
 }
 
-.pillBtnLight{
-    position: absolute;
-    padding: 20px 60px 20px 60px;
-    margin-top: 45px;
-    background-color: #8C7B6C;
-    color: #0d0d0d;
-    border-radius: 100px;
-    border:none;
-    font-family: 'Rozha-One';
-    font-size: 30px;
-    outline: none;
-}
-
-.pillBtnLight:hover{
-    background-color: #F2DCC2;
-    outline: none;
-}
-
 .header-main-page{
     background-color: #F2DCC2;
 }
