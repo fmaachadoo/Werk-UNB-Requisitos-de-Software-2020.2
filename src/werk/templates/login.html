@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <head>
     {% load static %}
+    <link href="{% static "css/general.css" %}" rel="stylesheet">
+    <link href="{% static "css/login.css" %}" rel="stylesheet">
 </head>
 <html lang="en">
     <body class="bg-image">
-        <div class="opacity-1">
-            <h1>Teste</h1>
+        <div class="loginCard">
+            <a class="voltar" href="/"><img src="{% static "images/backArrows.png" %}"">Voltar</a>
+
+            <img src="{% static "images/logo_brown.png" %}"" style="height: 110px; margin-left: calc(50% - 55px); margin-top: 30px;">
+            <h1>ENTRAR</h1>
+            <p>Ainda não possui uma conta?<br><a href="/">Registre-se agora!</a></p>
         </div>
     </body>
 </html>

@@ -1,0 +1,64 @@
+.loginCard{
+    max-height: 40vw;
+    max-width: 25vw;
+
+    min-height: 80vh;
+    min-width: 40vh;
+
+    border-radius: 5px;
+
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.253);
+
+    background-color: #F2DCC2;
+
+    margin-left: 37.5vw;
+    margin-top: 10vh;
+}
+
+.loginCard h1{
+    margin-top: 5px;
+
+    text-align: center;
+}
+
+p{
+    font-size: 18px;
+    text-align: center;
+
+
+    margin-top: -15px;
+}
+
+p a{
+    color: #0d0d0d;
+    text-decoration: underline;
+}
+
+p a:hover{
+    color: #40372F;
+}
+
+
+
+.voltar{
+    color: #40372F;
+    text-decoration: none;
+
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 40px;
+
+    font-size: 20px;
+}
+
+.voltar:hover{
+    text-decoration: underline;
+}
+
+.voltar img{
+    position: absolute; 
+    margin-left: -30px;
+    margin-top: -5px;
+
+    height: 30px;
+}
