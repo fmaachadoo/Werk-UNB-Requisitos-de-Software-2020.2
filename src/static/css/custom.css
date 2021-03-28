@@ -13,6 +13,7 @@
     color: #F2DCC2;
     border-radius: 100px;
     border:none;
+    text-align: center;
     display: inline-block;
     text-overflow: ellipsis;
     font-family: 'Rozha-One';
@@ -24,6 +25,8 @@
 
 .pillBtn:hover{
     background-color: #8C7B6C;
+    color: #F2DCC2;
+    text-decoration: none;
 }
 
 body{
@@ -41,10 +44,12 @@ body{
     border:none;
     font-family: 'Rozha-One';
     font-size: 30px;
+    outline: none;
 }
 
 .pillBtnLight:hover{
     background-color: #F2DCC2;
+    outline: none;
 }
 
 .header-main-page{
@@ -78,14 +83,12 @@ body{
 }
 
 .bg-image {
-        background: url("../images/leatherBackground.jpg") no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        background-color: #40372f;
-
-
+    background: url("../images/leatherBackground.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #40372f;
 }
 
 .opacity-1 {
