@@ -3,6 +3,10 @@
     src:url('{% static "fonts/RozhaOne-Regular.otf" %}')
 }
 
+.container {
+    max-width: 1500px !important;
+}
+
 header{
     overflow: hidden;
     height: 150px;
@@ -12,15 +16,18 @@ header{
 }
 
 .pillBtn{
-    position: absolute;
-    padding: 15px 50px 15px 50px;
-    margin-top: 45px;
+    padding: 12px 80px 12px 80px;
     background-color: #40372F;
     color: #F2DCC2;
     border-radius: 100px;
     border:none;
+    display: inline-block;
+    text-overflow: ellipsis;
     font-family: 'Rozha-One';
-    font-size: 23px;
+
+    font-weight: 800;
+    font-size: 18px;
+    width: 200px;
 }
 
 .pillBtn:hover{
@@ -30,12 +37,6 @@ header{
 body{
     overflow: hidden;
     background-color: #40372F;
-}
-
-body img{
-    position: absolute;
-    opacity: 15%;
-    margin-left: -7px;
 }
 
 .pillBtnLight{
@@ -53,3 +54,24 @@ body img{
 .pillBtnLight:hover{
     background-color: #F2DCC2;
 }
+
+.background-image-leather{
+    opacity: 0.15;
+}
+
+.header-main-page{
+    background-color: #F2DCC2;
+
+
+}
+
+#bg-image {
+        background: url("../images/leatherBackground.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-color: #40372f;
+        background-blend-mode: color-dodge;
+}
+
