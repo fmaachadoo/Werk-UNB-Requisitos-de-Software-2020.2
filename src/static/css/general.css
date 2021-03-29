@@ -17,7 +17,6 @@
     display: inline-block;
     text-overflow: ellipsis;
     font-family: 'Rozha-One';
-
     font-weight: 800;
     font-size: 18px;
     width: 200px;
@@ -30,7 +29,6 @@
 }
 
 body{
-    overflow: hidden;
     background-color: #40372F;
 }
 
@@ -58,8 +56,7 @@ body{
 }
 
 .description-text{
-    color: #BFA893;
-    font-family: 'Rozha-One';
+    color: #F2DCC2;
     font-size: 18px;
     font-weight: 800;
 }
@@ -73,6 +70,25 @@ body{
     background-color: #40372f;
 }
 
+.large-button {
+    padding: 12px 180px 12px 180px;
+    margin-top: 20px;
+    background-color: #BFA893;
+    color: #0D0D0D;
+    border-radius: 100px;
+    border:none;
+    text-align: center;
+    display: inline-block;
+    text-overflow: ellipsis;
+    font-family: 'Rozha-One';
+    font-weight: 800;
+    font-size: 24px;
+    width: 40vw;
+}
 
+.large-button:hover {
+    background-color: #8C7B6C;
+    color: #F2DCC2;
 
+}
 
