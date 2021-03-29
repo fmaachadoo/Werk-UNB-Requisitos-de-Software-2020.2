@@ -11,31 +11,31 @@
 </head>
 
 <body class="bg-image">
-<div class="opacity-1">
-<nav class="navbar header-main-page navbar-fixed-top opacity-1" >
-    <div class="container">
-        <div class="row align-content-center justify-content-center">
+<div>
+    <nav class="navbar header-main-page navbar-fixed-top">
+        <div class="container">
+            <div class="row align-content-center justify-content-center">
 
-            <a class="col" href="/werk"><img src="{% static "images/logo_brown.png" %}"
-                                             style="height: 90px;opacity: 1;"></a>
+                <a class="col" href="/werk"><img src="{% static "images/logo_brown.png" %}"
+                                                 style="height: 90px;opacity: 1;"></a>
+            </div>
+            <ul class="nav row">
+                <li class="col">
+                    <a class="pillBtn px-5" href="/login">ENTRAR</a>
+                </li>
+                <li class="col">
+                    <a class="pillBtn px-0" href="/">CADASTRE-SE</a>
+                </li>
+
+            </ul>
         </div>
-        <ul class="nav row">
-            <li class="col">
-                <a class="pillBtn px-5" href="/login">ENTRAR</a>
-            </li>
-            <li class="col">
-                <a class="pillBtn px-0" href="/">CADASTRE-SE</a>
-            </li>
+    </nav>
 
-        </ul>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
     </div>
-</nav>
-
-
-<div class="container">
-    {% block content %}
-    {% endblock %}
-</div>
 </div>
 </body>
 
