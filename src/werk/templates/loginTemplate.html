@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <head>
     {% load static %}
-    <link href="{% static "css/general.css" %}" rel="stylesheet">
-    <link href="{% static "css/login.css" %}" rel="stylesheet">
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link href="{% static 'css/general.css' %}" rel="stylesheet">
 </head>
 
 
 <html lang="en">
     <body class="bg-image">
-        <div class="container">
+        <div class="loginCard">
+            <a class="voltar" href="/"><img src="{% static 'images/backArrows.png' %}">Voltar</a>
+            <img src="{% static 'images/logo_brown.png' %}" style="height: 110px; margin-left: calc(50% - 55px); margin-top: 30px;">
+            
+
             {% block content %}
             {% endblock %}
         </div>

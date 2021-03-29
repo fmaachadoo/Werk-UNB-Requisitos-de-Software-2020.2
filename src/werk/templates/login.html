@@ -1,11 +1,29 @@
 {% extends 'loginTemplate.html' %}
 
 {% load static %}
+
 {% block content %}
-<div class="loginCard">
-    <a class="voltar" href="/"><img src="{% static "images/backArrows.png" %}"">Voltar</a>
-    <img src="{% static "images/logo_brown.png" %}"" style="height: 110px; margin-left: calc(50% - 55px); margin-top: 30px;">
-    <h1>ENTRAR</h1>
-    <p>Ainda não possui uma conta?<br><a href="/">Registre-se agora!</a></p>
-</div>
+<link href="{% static 'css/login.css' %}" rel="stylesheet">
+
+<h1>ENTRAR</h1>
+<p>Ainda não possui uma conta?<br><a href="/">Registre-se agora!</a></p>
+
+
+<form>
+    <label for="user">Email:</label><br>
+    <input type="email" id="userEmail" placeholder="seu.email@provedor.aqui"/><br>
+
+    <label for="passwordLogin">Senha:</label><br>
+    <input type="password" id="passwordLogin" placeholder="**********"/><br>
+    <br>
+    <p><a href="#" style="margin-left: 215px;">Esqueceu sua senha?</a></p>
+
+    <input type="submit" class="entrarBtn" value="ENTRAR" style="margin-top: 15%;"/>
+</form>
+    <div class="line">
+        <p class="tag">OU</p>
+    </div>
+    <a class="entrarBtn" style="margin-left: 30px" href="https://www.google.com"><img style="margin-left: -50px" class="btnLogo" src="{% static 'images/googleBlack.png' %}">Entrar com google</a>
+
+
 {% endblock %}
