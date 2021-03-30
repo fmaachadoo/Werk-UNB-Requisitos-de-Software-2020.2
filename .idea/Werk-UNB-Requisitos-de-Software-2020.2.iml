@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="django" name="Django">
       <configuration>
-        <option name="rootFolder" value="$MODULE_DIR$/werk_project" />
+        <option name="rootFolder" value="$MODULE_DIR$/src" />
         <option name="settingsModule" value="werk_project/settings.py" />
         <option name="manageScript" value="manage.py" />
         <option name="environment" value="&lt;map/&gt;" />

@@ -1,0 +1,94 @@
+@font-face{
+    font-family: 'Rozha-One';
+    src:url('{% static "fonts/RozhaOne-Regular.otf" %}')
+}
+
+.container {
+    max-width: 1500px !important;
+}
+
+.pillBtn{
+    padding: 12px 80px 12px 80px;
+    background-color: #40372F;
+    color: #F2DCC2;
+    border-radius: 100px;
+    border:none;
+    text-align: center;
+    display: inline-block;
+    text-overflow: ellipsis;
+    font-family: 'Rozha-One';
+    font-weight: 800;
+    font-size: 18px;
+    width: 200px;
+}
+
+.pillBtn:hover{
+    background-color: #8C7B6C;
+    color: #F2DCC2;
+    text-decoration: none;
+}
+
+body{
+    background-color: #40372F;
+}
+
+.header-main-page{
+    background-color: #F2DCC2;
+}
+
+.title {
+    font-family: 'Rozha-One';
+    font-size: 120px;
+    color: black;
+}
+
+.black-card {
+    padding: 130px;
+    background-color: #0D0D0D;
+    color: #BFA893;
+    font-family: 'Rozha-One';
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.slogan {
+    padding: 30px;
+}
+
+.description-text{
+    color: #F2DCC2;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.bg-image {
+    background: url("../images/leatherBackground.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #40372f;
+}
+
+.large-button {
+    padding: 12px 180px 12px 180px;
+    margin-top: 20px;
+    background-color: #BFA893;
+    color: #0D0D0D;
+    border-radius: 100px;
+    border:none;
+    text-align: center;
+    display: inline-block;
+    text-overflow: ellipsis;
+    font-family: 'Rozha-One';
+    font-weight: 800;
+    font-size: 24px;
+    width: 40vw;
+}
+
+.large-button:hover {
+    background-color: #8C7B6C;
+    color: #F2DCC2;
+
+}
+
