@@ -124,7 +124,7 @@ form input[type='password']{
 
     font-weight: 800;
     font-size: 22px;
-    width: 400px;
+    width: 90%;
 
     margin-bottom: 8%;
 
@@ -133,35 +133,27 @@ form input[type='password']{
 
 .entrarBtn:hover{
     background-color: #BFA893;
+    color: #0d0d0d;
+    text-decoration: none;
 }
 
 
 .line{
     height: 2px;
-    width: 460px;
+    width: 100%;
 
-    margin-left: 10px;
-
-    text-align: center;
+    margin-bottom: 20%;
 
     background-color: #BFA893;
-
-    margin-bottom: 8%;
 }
 
 .tag{
-    position: absolute;
     text-align: center;
-    
-    height: 30px;
-    width: 40px;
 
-    margin-left: 200px;
-    margin-top: -10px;
 
-    padding: 0px 20px 0px 20px;
+    margin-top: -15px;
 
-    font-size: 20px;
+    font-size: 25px;
 
     color: #BFA893;
     background-color: #F2DCC2;
@@ -169,5 +161,4 @@ form input[type='password']{
 
 .btnLogo{
     height: 25px;
-    position: absolute;
 }

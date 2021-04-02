@@ -1,18 +1,12 @@
 .loginCard{
-    max-height: 40vw;
-    max-width: 25vw;
+    height: 90vh;
+    width: 100%;
 
-    min-height: 80vh;
-    min-width: 40vh;
-
-    border-radius: 5px;
+    border-radius: 15px;
 
     box-shadow: 5px 5px rgba(0, 0, 0, 0.253);
 
     background-color: #F2DCC2;
-
-    margin-left: 37.5vw;
-    margin-top: 10vh;
 }
 
 .loginCard h1{
@@ -21,22 +15,16 @@
     text-align: center;
 }
 
-p{
-    font-size: 18px;
-    text-align: center;
-
-
-    margin-top: -15px;
-}
-
-p a{
+.action{
     color: #0d0d0d;
     text-decoration: underline;
 }
 
-p a:hover{
+.action:hover{
     color: #40372F;
+    text-decoration: none;
 }
+
 
 .voltar{
     color: #40372F;
@@ -51,6 +39,7 @@ p a:hover{
 
 .voltar:hover{
     text-decoration: underline;
+    color: #40372F;
 }
 
 .voltar img{
