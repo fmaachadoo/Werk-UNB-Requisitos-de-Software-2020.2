@@ -1,17 +1,87 @@
-<!DOCTYPE html>
-<head>
-    {% load static %}
-    <link href="{% static "css/general.css" %}" rel="stylesheet">
-    <link href="{% static "css/login.css" %}" rel="stylesheet">
-</head>
-<html lang="en">
-    <body class="bg-image">
-        <div class="loginCard">
-            <a class="voltar" href="/"><img src="{% static "images/backArrows.png" %}"">Voltar</a>
+{% extends 'loginTemplate.html' %}
 
-            <img src="{% static "images/logo_brown.png" %}"" style="height: 110px; margin-left: calc(50% - 55px); margin-top: 30px;">
-            <h1>ENTRAR</h1>
-            <p>Ainda não possui uma conta?<br><a href="/">Registre-se agora!</a></p>
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <h1 class="col-12" style="text-align: center;">ENTRAR</h1>
+</div>
+<div class="row">
+    <p class="col-12" style="text-align: center;">Ainda não possui uma conta?<br><a class="action" href="/">Registre-se agora!</a></p>
+</div>
+
+
+
+<form>
+    <div class="row">
+        <div class="col-9">
+            <label for="user" style="text-align: left;">Email:</label>
         </div>
-    </body>
-</html>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <input type="email" id="userEmail" placeholder="seu.email@provedor.aqui"/>
+        </div>
+    </div>
+    
+
+    <div class="row">
+        <div class="col-9">
+            <label for="password" style="text-align: left;">Senha:</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <input type="password" id="userPassword" placeholder="**********"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-11" style="text-align: right;">
+            <a class="action" href="#">Esqueceu sua senha?</a>
+        </div>
+    </div>  
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-12">
+            <input type="submit" class="entrarBtn" value="ENTRAR"/>
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-4">
+        <div class="line"></div>
+    </div>
+
+    <div class="col-2">
+        <div class="tag">OU</div>
+    </div>
+
+    <div class="col-4">
+        <div class="line"></div>
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-11">
+        <a class="entrarBtn" href="https://www.google.com">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-2" style="text-align: right;">
+                    <img style="height:35px" src="{% static 'images/googleBlack.png' %}"/>
+                </div>
+                <div class="col-8" style="text-align: left;">
+                    <h3 style="font-weight: 800; font-size: 30px;">Entrar com Google</h3>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}
