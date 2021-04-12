@@ -1,1 +1,57 @@
-teste
+{% extends 'loginTemplate.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <h1 class="col-12" style="text-align: center;">CADASTRE-SE</h1>
+</div>
+<div class="row">
+    <p class="col-12" style="text-align: center;">Já possui uma conta?<br><a class="action" href="/">Faça seu login!</a></p>
+</div>
+
+<form>
+    <div class="row">
+        <div class="col-9">
+            <label for="user" style="text-align: left;">Email:</label>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
+            <input type="email" id="userEmail" placeholder="seu.email@provedor.aqui"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-9">
+            <label for="user" style="text-align: left;">Confirme seu email:</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <input type="email" id="emailConfirm" placeholder="seu.email@provedor.aqui"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-9">
+            <label for="password" style="text-align: left;">Senha:</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <input type="password" id="userPassword" placeholder="**********"/>
+        </div>
+    </div> 
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-12">
+            <input type="submit" class="entrarBtn" value="CRIAR CONTA"/>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

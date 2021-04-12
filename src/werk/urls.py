@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     path('', views.home, name="werk-home"),
     path('login', views.login, name="werk-login"),
+    path('cadastro', views.cadastro, name="werk-cadastro"),
 ]
