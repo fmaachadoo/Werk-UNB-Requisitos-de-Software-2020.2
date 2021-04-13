@@ -19,11 +19,10 @@ class Activity(models.Model):
     done = models.BooleanField(default=False)
 
 
-class WerkUser(models.Model):
+class WerkUser(User):
     """
         Werk's User Model
     """
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE)
     archived_workspace = models.OneToOneField(Workspace, on_delete=models.CASCADE, primary_key=True,
                                               related_name='archived')
