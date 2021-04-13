@@ -6,7 +6,7 @@ class Workspace(models.Model):
     """
         User's Workspace models
     """
-    title = models.CharField(default='Workspace')
+    title = models.CharField(max_length=100, default='Workspace')
 
 
 class Activity(models.Model):
