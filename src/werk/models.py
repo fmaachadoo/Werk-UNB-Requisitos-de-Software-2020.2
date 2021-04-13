@@ -22,4 +22,5 @@ class WerkUser(User):
         Werk's User Model
     """
     workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE)
-    archived_workspace = models.OneToOneField(Workspace, on_delete=models.CASCADE, primary_key=True)
+    archived_workspace = models.OneToOneField(Workspace, on_delete=models.CASCADE, primary_key=True,
+                                              related_name='archived')
