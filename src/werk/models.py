@@ -13,6 +13,8 @@ class Activity(models.Model):
     """
         User's activity model
     """
+    title = models.CharField(max_length=100, blank=True)
+    description = models.TextField(max_length=1000, blank=True)
     workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE)
     done = models.BooleanField(default=False)
 
