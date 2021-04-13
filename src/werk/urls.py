@@ -3,7 +3,7 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    path('', views.home, name="werk-home"),
-    path('login', views.login, name="werk-login"),
-    path('cadastro', views.cadastro, name="werk-cadastro"),
+    path('', views.homeView, name="werk-home"),
+    path('login', views.loginView, name="werk-login"),
+    path('cadastro', views.cadastroView, name="werk-cadastro"),
 ]

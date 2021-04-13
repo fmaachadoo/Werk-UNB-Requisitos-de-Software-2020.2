@@ -1,12 +1,55 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+from .models import WerkUser, Workspace, Activity
 
-# Create your views here.
-def home(request):
+
+def homeView(request):
+
     return render(request, 'home.html')
 
-def login(request):
+
+def loginView(request):
+    if request.POST:
+        username = request.POST['username']
+        password = request.POST['password']
+
+        # This method of user authentication is deprecated and should not be considered a secure method
+        # This project is only for purposes of software engineering learning
+        # So, there is no need for it to be a secure project
+        user = User.objects.filter(username=username, password=password).first()
+        if user is not None:
+            login(request, user)
+            return render(request, 'home.html')
     return render(request, 'login.html')
 
-def cadastro(request):
+
+def cadastroView(request):
+    if request.POST:
+        username = request.POST['username']
+        password = request.POST['password']
+        existing_user = User.objects.filter(username=username, password=password).first()
+        if existing_user:
+            return render(request, 'cadastro.html')
+
+        new_workspace = Workspace()
+        new_workspace.title = 'Area de Trabalho de ' + str(request.POST['first-name'] or 'Usuário')
+        new_workspace.save()
+
+        new_archived_workspace = Workspace()
+        new_archived_workspace.title = 'Tarefas Arquivadas'
+        new_archived_workspace.save()
+
+        new_user = WerkUser()
+        new_user.first_name = request.POST['first-name']
+        new_user.last_name = request.POST['last-name']
+        new_user.email = request.POST['email']
+        new_user.username = username
+        new_user.password = password
+        new_user.workspace_id = new_workspace.id
+        new_user.archived_workspace_id = new_archived_workspace.id
+        new_user.save()
+        return render(request, 'home.html')
+
     return render(request, 'cadastro.html')
