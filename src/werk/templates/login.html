@@ -14,27 +14,28 @@
 
 
 
-    <form>
+    <form method="post">
+        {% csrf_token %}
         <div class="row">
             <div class="col-9">
-                <label for="user" style="text-align: left;">Email:</label>
+                <label for="usernameInput" style="text-align: left;">Email:</label>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <input type="email" id="userEmail" placeholder="seu.email@provedor.aqui"/>
+                <input type="text" id="usernameInput" name="username" placeholder="username"/>
             </div>
         </div>
 
 
         <div class="row">
             <div class="col-9">
-                <label for="password" style="text-align: left;">Senha:</label>
+                <label for="passwordInput" style="text-align: left;">Senha:</label>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <input type="password" id="userPassword" placeholder="**********"/>
+                <input type="password" id="passwordInput" name="password" placeholder="**********"/>
             </div>
         </div>
         <div class="row">

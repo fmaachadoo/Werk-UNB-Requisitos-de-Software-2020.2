@@ -20,15 +20,20 @@
                 <a class="col" href="/werk"><img src="{% static "images/logo_brown.png" %}"
                                                  style="height: 90px;opacity: 1;"></a>
             </div>
-            <ul class="nav row">
-                <li class="col">
-                    <a class="pillBtn" href="/login">ENTRAR</a>
-                </li>
-                <li class="col">
-                    <a class="pillBtn" href="/cadastro">CADASTRE-SE</a>
-                </li>
-
-            </ul>
+            {% if user.is_authenticated == False %}
+                <ul class="nav row">
+                    <li class="col">
+                        <a class="pillBtn" href="/login">ENTRAR</a>
+                    </li>
+                    <li class="col">
+                        <a class="pillBtn" href="/cadastro">CADASTRE-SE</a>
+                    </li>
+                </ul>
+            {% else %}
+                <div>
+                    Bem vindo, {{ user.username }}
+                </div>
+            {% endif %}
         </div>
     </nav>
 
