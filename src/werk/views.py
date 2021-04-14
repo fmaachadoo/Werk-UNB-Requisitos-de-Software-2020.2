@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
+from django.contrib import messages
 from .models import WerkUser, Workspace, Activity
 
 
@@ -22,6 +23,8 @@ def loginView(request):
         if user is not None:
             login(request, user)
             return render(request, 'home.html')
+        else:
+            messages.warning(request, "Email ou Senha incorretos!")
     return render(request, 'login.html')
 
 
