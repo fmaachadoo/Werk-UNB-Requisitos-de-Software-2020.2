@@ -7,6 +7,9 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </head>
 
+<div>
+    {% include 'messages.html'%}
+</div>
 
 <html lang="en">
 <body class="bg-image">
@@ -32,5 +35,13 @@
 
     </div>
 </div>
+
+    <script>
+        setTimeout(function(){
+            if($('#msg').length > 0){
+                $('#msg').remove();
+            }
+        }, 5000)
+    </script>
 </body>
 </html>

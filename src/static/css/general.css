@@ -96,19 +96,6 @@ form input[type='email']{
     font-size: larger;
 }
 
-form input[type='password']{
-    width: 90%;
-    height: 30px;
-    
-    color: #C2C2C2;
-    background-color: #40372F;
-    
-    border:none;
-    border-radius: 3px;
-
-    font-size: larger;
-}
-
 .entrarBtn{
     padding: 13px 0px 13px 0px;
     background-color: #8C7B6C;
