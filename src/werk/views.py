@@ -7,8 +7,12 @@ from .models import WerkUser, Workspace, Activity
 
 
 def homeView(request):
+    user = request.user
+    if user is None:
+        return render(request, 'home.html')
+    else:
+        return render(request, 'login.html')
 
-    return render(request, 'home.html')
 
 
 def loginView(request):
