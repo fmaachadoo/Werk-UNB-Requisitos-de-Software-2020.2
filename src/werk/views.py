@@ -11,7 +11,7 @@ def homeView(request):
     if user is None:
         return render(request, 'home.html')
     else:
-        return render(request, 'login.html')
+        return render(request, 'home_login.html')
 
 
 

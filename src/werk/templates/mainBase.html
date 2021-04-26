@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>WERK</title>
+  
+    <!-- Bootstrap core CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/sidebar.css' %}" rel="stylesheet">
+  
+  </head>
+  
+  <body class="bg-image">
+    <div class="d-flex" id="wrapper">
+  
+      <!-- Sidebar -->
+      <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">Start Bootstrap </div>
+        <div class="list-group list-group-flush">
+          <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+          <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
+          <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
+          <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+          <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+          <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+        </div>
+      </div>
+      <!-- /#sidebar-wrapper -->
+  
+      <!-- conteudo da pagina -->
+      <div id="page-content-wrapper">
+        <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+  
+        <div class="container-fluid">
+         
+        </div>
+      </div>
+  
+    </div>
+  
+  
+    <script src="{% static 'js/jquery.min.js'%}" ></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+  
+  
+    <!--Script da aba de menu-->
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+  
+    </body>
+  
+</html>
+  
