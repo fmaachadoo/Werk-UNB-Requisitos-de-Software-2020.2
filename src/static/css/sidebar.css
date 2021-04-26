@@ -48,3 +48,11 @@
     margin-left: -15rem;
   }
 }
+
+.list-group-item-action{
+  background-color: #F2DCC2;
+}
+
+.list-group-item-action:hover{
+  background-color: #BFA893;
+}
