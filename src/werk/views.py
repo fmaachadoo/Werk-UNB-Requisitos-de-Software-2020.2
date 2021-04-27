@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import WerkUser, Workspace, Activity
@@ -8,10 +9,10 @@ from .models import WerkUser, Workspace, Activity
 
 def homeView(request):
     user = request.user
-    if user is None:
-        return render(request, 'home.html')
-    else:
+    if user.is_authenticated:
         return render(request, 'home_login.html')
+    else:
+        return render(request, 'home.html')
 
 
 
@@ -26,11 +27,10 @@ def loginView(request):
         user = User.objects.filter(username=username, password=password).first()
         if user is not None:
             login(request, user)
-            return render(request, 'home.html')
+            return homeView(request)
         else:
             messages.warning(request, "Email ou Senha incorretos!")
     return render(request, 'login.html')
-
 
 def cadastroView(request):
     if request.POST:
@@ -60,3 +60,11 @@ def cadastroView(request):
         return render(request, 'home.html')
 
     return render(request, 'cadastro.html')
+
+
+def logoutUser(request):
+    user = request.user
+    if user.is_authenticated:
+        logout(request)
+
+    return homeView(request)
