@@ -71,8 +71,7 @@
 .elipseBtn{
   background-color: #F2DCC2;
 
-  height: 100px;
-  width: 100px;
+  padding: 25px;
 
   transition: all .4s ease;
 
