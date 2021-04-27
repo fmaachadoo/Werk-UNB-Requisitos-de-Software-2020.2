@@ -8,11 +8,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 d-flex justify-content-center">
-      <h1 class="tasks-title">TAREFAS A SEREM FEITAS <a href="#" id="addTask"><img src="{%static 'images/AddTask.png'%}" style="height: 30px;"/></a></h1>
+      <h1 class="tasks-title">TAREFAS A SEREM FEITAS<img src="{%static 'images/AddTask.png'%}" style="height: 30px; margin-top: -5px; margin-left: 10px;"/></h1>
     </div>
 
     <div class="col-md-6 d-flex justify-content-center">
-      <h1 class="tasks-title">TAREFAS PRONTAS</h1>
+      <h1 class="tasks-title">TAREFAS PRONTAS<img src="{%static 'images/Checkmark.png'%}" style="height: 30px; margin-top: -5px; margin-left: 10px;"/></h1>
     </div>
   </div>
 
@@ -24,6 +24,22 @@
 
   <div class="divider"></div>
 
+</div>
+
+<div class="row">
+  <div class="col-md-12 d-flex justify-content-end">
+    <div style="position: absolute; margin-top: max(350px, calc(100vh - 340px)); margin-right: 80px; text-align: center;">
+     
+      <div style="color: #F2DCC2">
+        <p>Arquivar Tarefas Realizadas</p>
+      </div>  
+  
+      <button href="archiveTask" class="elipseBtn">  
+        <img style="height: 55px;" src="{% static 'images/ArchiveTask.png'%}"/>
+      </button>
+   
+    </div>
+  </div>
 </div>
 
 {% endblock %}

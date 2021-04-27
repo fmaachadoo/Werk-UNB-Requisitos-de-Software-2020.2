@@ -53,3 +53,11 @@
     margin-left: 20px;
     background-color: #0D0D0D;
 }
+
+.imgBtn{
+    transition: all .3s ease;
+}
+
+.imgBtn:hover{
+    transform: scale(1.2);
+}

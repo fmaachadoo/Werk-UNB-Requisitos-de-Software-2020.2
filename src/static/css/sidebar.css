@@ -28,7 +28,7 @@
 }
 
 #sidebar-wrapper .list-group {
-  width: 24rem;
+  width: 20rem;
 }
 
 #page-content-wrapper {
@@ -66,4 +66,26 @@
 .list-group-item-action:hover{
   background-color: #e0ceb7;
   color: #0D0D0D;
+}
+
+.elipseBtn{
+  background-color: #F2DCC2;
+
+  height: 100px;
+  width: 100px;
+
+  transition: all .4s ease;
+
+  border-radius: 300px;
+  border: none;
+  outline: none;
+}
+
+.elipseBtn:focus{
+  outline: none;
+  background-color: #e0ceb7;
+}
+
+.elipseBtn:hover{
+  transform: scale(1.1);
 }
