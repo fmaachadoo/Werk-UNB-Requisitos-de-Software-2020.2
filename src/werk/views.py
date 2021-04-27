@@ -57,7 +57,7 @@ def cadastroView(request):
         new_user.workspace_id = new_workspace.id
         new_user.archived_workspace_id = new_archived_workspace.id
         new_user.save()
-        return render(request, 'home.html')
+        return homeView(request)
 
     return render(request, 'cadastro.html')
 
