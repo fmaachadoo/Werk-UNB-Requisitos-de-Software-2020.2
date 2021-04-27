@@ -68,3 +68,8 @@ def logoutUser(request):
         logout(request)
 
     return redirect('/')
+
+
+#Temporario pra teste
+def task(request):
+    return render(request, 'task.html')
