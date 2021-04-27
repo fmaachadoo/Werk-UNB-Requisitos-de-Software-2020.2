@@ -1,12 +1,21 @@
 @font-face{
-    font-family: 'Rufina';
-    src:url('{% static "fonts/Rufina-Regular.ttf" %}');
-    
+    font-family: 'Rozha-One';
+    src:url("fonts/RozhaOne-Regular.ttf");
 }
 
 @font-face{
     font-family: 'Rufina-Bold';
-    src:url('{% static "fonts/Rufina-Bold.ttf" %}');
+    src:url("fonts/Rufina-Bold.ttf");
+}
+
+@font-face{
+    font-family: 'Rufina';
+    src:url("fonts/Rufina-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Product-Sans';
+    src: url("fonts/Product-Sans.ttf");
 }
 
 .tasks-title{
@@ -24,7 +33,7 @@
     text-align: center;
     display: inline-block;
     text-overflow: ellipsis;
-    font-family: 'Rufina-Bold';
+    font-family: 'Product-Sans';
 
     transition: all .3s ease;
 
@@ -37,10 +46,13 @@
     background-color: #e0ceb7;
 }
 
+.pillBtn-light:focus{
+    outline: none;
+}
+
 
 .divider{
     position: absolute;
-    margin-left: 40vw;
     height: 70vh;
     width: 1px;
     background-color: #F2DCC2;
@@ -60,4 +72,85 @@
 
 .imgBtn:hover{
     transform: scale(1.2);
+}
+
+.taskCard{
+    width: max(90%, 40vw);
+
+    background-color: #40372F;
+
+    border-radius: 10px;
+
+    margin-top: 20px;
+}
+
+.taskTitle{
+    color: #FFFFFF;
+
+    font-size: 26px;
+    font-family: 'Product-Sans';
+
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.taskBody{
+    color: #b1b1b1;
+
+    width: 90%;
+
+    font-size: 20px;
+    font-family: 'Product-Sans';
+
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.elipseBtn{
+    background-color: #F2DCC2;
+  
+    padding: 15px;
+  
+    transition: all .4s ease;
+  
+    border-radius: 300px;
+    border: none;
+    outline: none;
+}
+  
+.elipseBtn:focus{
+    outline: none;
+    background-color: #e0ceb7;
+}
+  
+.elipseBtn:hover{
+    transform: scale(1.1);
+}
+
+.timeBtn{
+    background-color: #F2DCC2;
+    
+    padding: 5px 25px 5px 25px;
+
+    font-size: 20px;
+    
+    border-radius: 20px;
+    border: none;
+
+    font-family: 'Product-Sans';
+
+    transition: all .4s ease;
+
+    margin-top: 25px;
+    margin-left: 20px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.timeBtn:hover{
+    transform: scale(1.1);
+}
+
+.timeBtn:focus{
+    outline: none;
 }

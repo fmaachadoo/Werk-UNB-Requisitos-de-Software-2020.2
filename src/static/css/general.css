@@ -1,7 +1,18 @@
 @font-face{
     font-family: 'Rozha-One';
-    src:url('{% static "fonts/RozhaOne-Regular.ttf" %}')
+    src:url("fonts/RozhaOne-Regular.ttf");
 }
+
+@font-face{
+    font-family: 'Rufina-Bold';
+    src:url("fonts/Rufina-Bold.ttf");
+}
+
+@font-face{
+    font-family: 'Rufina';
+    src:url("fonts/Rufina-Regular.ttf");
+}
+
 
 .container {
     max-width: 1500px !important;
@@ -16,7 +27,7 @@
     text-align: center;
     display: inline-block;
     text-overflow: ellipsis;
-    font-family: 'Rozha-One';
+    font-family: 'Rufina';
 
     font-weight: 800;
     font-size: 18px;
@@ -29,6 +40,10 @@
     text-decoration: none;
 }
 
+.pillBtn:focus{
+    outline: none;
+}
+
 body{
     overflow: hidden;
     background-color: #40372F;
@@ -39,7 +54,7 @@ body{
 }
 
 .title {
-    font-family: 'Rozha-One';
+    font-family: 'Rufina';
     font-size: 120px;
     color: black;
 }
@@ -48,7 +63,7 @@ body{
     padding: 130px;
     background-color: #0D0D0D;
     color: #BFA893;
-    font-family: 'Rozha-One';
+    font-family: 'Rufina';
     font-size: 24px;
     font-weight: 800;
 }
@@ -59,7 +74,7 @@ body{
 
 .description-text{
     color: #BFA893;
-    font-family: 'Rozha-One';
+    font-family: 'Rufina';
     font-size: 18px;
     font-weight: 800;
 }
@@ -107,7 +122,7 @@ form input[type='email']{
     text-align: center;
     display: inline-block;
     text-overflow: ellipsis;
-    font-family: 'Rozha-One';
+    font-family: 'Rufina';
 
     font-weight: 800;
     font-size: 22px;

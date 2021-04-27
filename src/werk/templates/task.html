@@ -1,2 +1,27 @@
 {% load static %}
-<link href="{% static 'css/task.css' %}" rel="stylesheet">
+<link href="{% static 'css/tasks.css' %}" rel="stylesheet">
+
+<div class="taskCard">
+    <div class="row">
+        <div class="col-md-12" style="margin-left: 15px; margin-top: 15px;">
+            <h1 class="taskTitle">Task Title Example</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="taskBody">When making any changes to the Sass variables or maps, you’ll need to save your changes and recompile. Doing so will output a brand new set of predefined grid classes for column widths, offsets, and ordering. Responsive visibility utilities will also be updated to use the custom breakpoints. Make sure to set grid values in px (not rem, em, or %).</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-7">
+            <button class="timeBtn">Iniciar Tarefa<img src="{% static 'images/Clock.png' %}" style="height: 25px; margin-left: 25px; margin-top: -5px;"/></button>
+            <button class="elipseBtn" style="margin-top: 25px; margin-left: 20px; padding: 7px 7px 7px 7px;"><img src="{% static 'images/TrashCan.png' %}" style="height: 25px; margin-top: -3px;"/></button>
+        </div>
+        
+
+        <div class="col-md-5 d-flex justify-content-end">
+            <button class="timeBtn" style="margin-right: 20px;">Finaliza Tarefa</button>
+        </div>
+    </div>
+</div>

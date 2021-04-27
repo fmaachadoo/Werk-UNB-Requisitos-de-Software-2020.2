@@ -4,10 +4,25 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 
-  @font-face{
-    font-family: 'Rufina-Bold';
-    src:url('{% static "fonts/Rufina-Bold.ttf" %}');
-  }
+ @font-face{
+  font-family: 'Rozha-One';
+  src:url("fonts/RozhaOne-Regular.ttf");
+}
+
+@font-face{
+  font-family: 'Rufina-Bold';
+  src:url("fonts/Rufina-Bold.ttf");
+}
+
+@font-face{
+  font-family: 'Rufina';
+  src:url("fonts/Rufina-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Product-Sans';
+  src: url("fonts/Product-Sans.ttf");
+}
 
  #wrapper {
     overflow-x: hidden;
@@ -55,7 +70,7 @@
 }
 
 .list-group-item-action{
-  font-family: 'Rufina-Bold';
+  font-family: 'Product-Sans';
   padding: 10px 10px 0px 20px;
   height: 50px;
   font-size: 17px;
@@ -68,23 +83,7 @@
   color: #0D0D0D;
 }
 
-.elipseBtn{
-  background-color: #F2DCC2;
-
-  padding: 25px;
-
-  transition: all .4s ease;
-
-  border-radius: 300px;
-  border: none;
-  outline: none;
-}
-
-.elipseBtn:focus{
-  outline: none;
+.list-group-item-action:focus{
   background-color: #e0ceb7;
-}
-
-.elipseBtn:hover{
-  transform: scale(1.1);
+  color: #0D0D0D;
 }
