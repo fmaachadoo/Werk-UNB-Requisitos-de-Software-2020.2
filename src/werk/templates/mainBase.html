@@ -12,6 +12,7 @@
     {% load static %}
     <link href="{% static 'css/general.css' %}" rel="stylesheet">
     <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link href="{% static 'css/tasks.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -22,7 +23,7 @@
   </head>
   
   <body class="bg-image">
-    <div class="d-flex" id="wrapper">
+    <div class="d-flex" id="wrapper" style="background-color: rgb(13, 13, 13, 0.7);">
   
       <!-- Sidebar -->
       <div id="sidebar-wrapper" style="background-color:  #F2DCC2;">
@@ -39,13 +40,14 @@
           <a id="menu-toggle" style="margin-left: -110px;"><img style="width: 60px; margin-top: 25px;" src="{% static 'images/MenuSandwich.png' %}"></a>
         </div>
 
+        <div style="position: absolute; padding-top: max(200px, calc(100vh - 180px));; margin-left: -110px;">
+            <img style="width: 70px;" src="{% static 'images/logo_brown.png' %}" />
+        </div>
+
         <!-- conteudo da pagina -->
         {% block content %}
 
         {% endblock %}
-        <div style="position: fixed; padding-top: max(200px, calc(100vh - 200px));; margin-left: -110px;">
-            <img style="width: 70px;" src="{% static 'images/logo_brown.png' %}" />
-        </div>
       </div>
     </div>
 

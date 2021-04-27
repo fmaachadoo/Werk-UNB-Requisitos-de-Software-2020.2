@@ -1,8 +1,28 @@
 {% extends 'mainBase.html' %}
 {% load static %}
 
+
 {% block content %}
 
 
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 d-flex justify-content-center">
+      <h1 class="tasks-title">TAREFAS A SEREM FEITAS <a href="#" id="addTask"><img src="{%static 'images/AddTask.png'%}" style="height: 30px;"/></a></h1>
+    </div>
+
+    <div class="col-md-6 d-flex justify-content-center">
+      <h1 class="tasks-title">TAREFAS PRONTAS</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 d-flex justify-content-center">
+      <button class="pillBtn-light">Criar Tarefa</button>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+</div>
 
 {% endblock %}

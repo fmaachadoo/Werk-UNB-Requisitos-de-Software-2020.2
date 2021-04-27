@@ -1,0 +1,52 @@
+@font-face{
+    font-family: 'Rufina';
+    src:url('{% static "fonts/Rufina-Regular.ttf" %}');
+    
+}
+
+@font-face{
+    font-family: 'Rufina-Bold';
+    src:url('{% static "fonts/Rufina-Bold.ttf" %}');
+}
+.grow { transition: all .2s ease-in-out;
+}
+
+.grow:hover { transform: scale(1.1) .2s ease-in-out;
+}
+
+.tasks-title{
+    font-family: 'Rufina';
+    color: #F2DCC2;
+    font-size: 30px;
+}
+
+.pillBtn-light{
+    padding: 6px 10px 6px 10px;
+    background-color: #F2DCC2;
+    color: #0D0D0D;
+    border-radius: 100px;
+    border:none;
+    text-align: center;
+    display: inline-block;
+    text-overflow: ellipsis;
+    font-family: 'Rufina-Bold';
+
+    transition: all .3s ease;
+
+    font-size: 18px;
+    width: 200px;
+}
+
+.pillBtn-light:hover{
+    transform: scale(1.1);
+    background-color: #e0ceb7;
+}
+
+
+.divider{
+    position: absolute;
+    margin-left: 40vw;
+    height: 70vh;
+    width: 1px;
+    background-color: #F2DCC2;
+}

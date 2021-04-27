@@ -1,6 +1,6 @@
 @font-face{
     font-family: 'Rozha-One';
-    src:url('{% static "fonts/RozhaOne-Regular.otf" %}')
+    src:url('{% static "fonts/RozhaOne-Regular.ttf" %}')
 }
 
 .container {
