@@ -25,24 +25,34 @@
     <div class="d-flex" id="wrapper">
   
       <!-- Sidebar -->
-      <div id="sidebar-wrapper" style="background-color: #F2DCC2;">
-        <div class="sidebar-heading" style="height: 75px;">WERK</div>
+      <div id="sidebar-wrapper" style="background-color:  #F2DCC2;">
+        <div class="sidebar-heading" style="height: 100px; font-size: 50px;">MENU</div>
         <div class="list-group list-group-flush">
           <a href="#" class="list-group-item list-group-item-action">Dashboard</a>
-          <a href="#" class="list-group-item list-group-item-action">Shortcuts</a>
-          <a href="#" class="list-group-item list-group-item-action">Overview</a>
-          <a href="#" class="list-group-item list-group-item-action">Events</a>
           <a href="#" class="list-group-item list-group-item-action">Profile</a>
-          <a href="#" class="list-group-item list-group-item-action">Status</a>
+          <a href="#" class="list-group-item list-group-item-action">Taks</a>
         </div>
       </div>
       <!-- /#sidebar-wrapper -->
-  
-      <!-- conteudo da pagina -->
-      {% block content %}
-      {% endblock %}
-  
+      <div id="page-content-wrapper">
+        <div>
+          <a id="menu-toggle" style="margin-left: -110px;"><img style="width: 60px; margin-top: 25px;" src="{% static 'images/MenuSandwich.png' %}"></a>
+        </div>
+
+        <!-- conteudo da pagina -->
+        {% block content %}
+
+        {% endblock %}
+        <div style="position: fixed; padding-top: max(200px, calc(100vh - 200px));; margin-left: -110px;">
+            <img style="width: 70px;" src="{% static 'images/logo_brown.png' %}" />
+        </div>
+      </div>
     </div>
+
+
+
+
+</body>
   
   
     <script src="{% static 'js/jquery.min.js'%}" ></script>
@@ -57,7 +67,7 @@
       });
     </script>
   
-    </body>
+
   
 </html>
   
