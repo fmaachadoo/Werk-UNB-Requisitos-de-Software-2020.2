@@ -4,6 +4,11 @@
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 
+  @font-face{
+    font-family: 'Rufina-Bold';
+    src:url('{% static "fonts/Rufina-Bold.ttf" %}');
+  }
+
  #wrapper {
     overflow-x: hidden;
  }
@@ -50,9 +55,15 @@
 }
 
 .list-group-item-action{
+  font-family: 'Rufina-Bold';
+  padding: 10px 10px 0px 20px;
+  height: 50px;
+  font-size: 17px;
   background-color: #F2DCC2;
+  color: #0D0D0D;
 }
 
 .list-group-item-action:hover{
   background-color: #e0ceb7;
+  color: #0D0D0D;
 }

@@ -27,11 +27,19 @@
   
       <!-- Sidebar -->
       <div id="sidebar-wrapper" style="background-color:  #F2DCC2;">
-        <div class="sidebar-heading" style="height: 100px; font-size: 50px;">MENU</div>
+        <div class="sidebar-heading" style="height: 130px; font-size: 50px; font-family: 'Rufina-Bold';">MENU
+          <br>
+          <p style="font-size: 20px;">Olá, {{user.first_name}}</p> 
+        </div>
         <div class="list-group list-group-flush">
-          <a href="#" class="list-group-item list-group-item-action">Dashboard</a>
-          <a href="#" class="list-group-item list-group-item-action">Profile</a>
-          <a href="#" class="list-group-item list-group-item-action">Taks</a>
+          <div class="listDivider"></div> 
+          <a href="#" class="list-group-item-action">Dashboard</a>
+          <div class="listDivider"></div> 
+          <a href="#" class="list-group-item-action">Profile</a>
+          <div class="listDivider"></div> 
+          <a href="#" class="list-group-item-action">Taks</a>
+          <div class="listDivider"></div> 
+          <a href="/logout" class="list-group-item-action">Log Out</a>
         </div>
       </div>
       <!-- /#sidebar-wrapper -->

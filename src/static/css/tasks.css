@@ -8,11 +8,6 @@
     font-family: 'Rufina-Bold';
     src:url('{% static "fonts/Rufina-Bold.ttf" %}');
 }
-.grow { transition: all .2s ease-in-out;
-}
-
-.grow:hover { transform: scale(1.1) .2s ease-in-out;
-}
 
 .tasks-title{
     font-family: 'Rufina';
@@ -49,4 +44,12 @@
     height: 70vh;
     width: 1px;
     background-color: #F2DCC2;
+}
+
+.listDivider{
+    width: 200px;
+    height: 1px;
+
+    margin-left: 20px;
+    background-color: #0D0D0D;
 }

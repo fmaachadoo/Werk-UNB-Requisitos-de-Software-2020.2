@@ -27,7 +27,7 @@ def loginView(request):
         user = User.objects.filter(username=username, password=password).first()
         if user is not None:
             login(request, user)
-            return homeView(request)
+            return redirect('/')
         else:
             messages.warning(request, "Email ou Senha incorretos!")
     return render(request, 'login.html')
@@ -67,4 +67,4 @@ def logoutUser(request):
     if user.is_authenticated:
         logout(request)
 
-    return homeView(request)
+    return redirect('/')
