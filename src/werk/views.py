@@ -87,4 +87,3 @@ def addTask(request):
         return redirect("/")
     return render(request, 'newTask.html')
 
-
