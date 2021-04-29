@@ -26,3 +26,15 @@ class WerkUser(User):
     workspace = models.ForeignKey(Workspace, on_delete=models.CASCADE)
     archived_workspace = models.OneToOneField(Workspace, on_delete=models.CASCADE, primary_key=True,
                                               related_name='archived')
+
+
+class WerkTask(models.Model):
+    """
+        Werk's Task Model
+    """
+    user = models.ForeignKey(WerkUser, on_delete=models.CASCADE)
+    title = models.CharField(max_length=30)
+    body = models.TextField()
+    done = models.BooleanField(default=False)
+    start_time = models.DateField(blank=True)
+    end = models.DateField(blank=True)
