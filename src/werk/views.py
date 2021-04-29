@@ -10,7 +10,10 @@ from .models import WerkUser, Workspace, Activity, WerkTask
 def homeView(request):
     user = request.user
     if user.is_authenticated:
-        return render(request, 'home_login.html')
+        CurrentTasks = WerkTask.objects.filter(user=user, done=False)
+        DoneTasks = WerkTask.objects.filter(user=user, done=True)
+
+        return render(request, 'home_login.html', {'UserTasks':CurrentTasks, 'DoneTasks':DoneTasks})
     else:
         return render(request, 'home.html')
 
@@ -73,10 +76,11 @@ def logoutUser(request):
 
 
 def addTask(request):
+    user = request.user
     if request.POST:
         if user.is_authenticated:
             new_task = WerkTask()
-            new_task.user = request.id
+            new_task.user = request.user
             new_task.title =  request.POST['titulo']
             new_task.body = request.POST['corpo']
             new_task.save()
