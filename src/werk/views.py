@@ -87,3 +87,8 @@ def addTask(request):
         return redirect("/")
     return render(request, 'newTask.html')
 
+def removeTask(request, id):
+    user = request.user
+    if user.is_authenticated:
+        task = WerkTask.objects.filter(user=user, id=id).delete()
+    return redirect("/")
