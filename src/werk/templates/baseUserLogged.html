@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>WERK</title>
+  
+    <!-- Bootstrap core CSS -->
+    {% load static %}
+    <link href="{% static 'css/general.css' %}" rel="stylesheet">
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link href="{% static 'css/tasks.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/sidebar.css' %}" rel="stylesheet">
+  
+  </head>
+  
+  <body class="bg-image">
+    <div class="d-flex" id="wrapper" style="background-color: rgb(13, 13, 13, 0.7);">
+  
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper" style="background-color:  #F2DCC2;">
+        <div class="sidebar-heading" style="height: 130px; font-size: 50px; font-family: 'Rufina-Bold';">MENU
+          <br>
+          <p style="font-size: 20px;">Olá, {{user.username}}</p> 
+        </div>
+        <div class="list-group list-group-flush">
+          <div class="listDivider"></div> 
+          <a href="#" class="list-group-item-action">Dashboard</a>
+          <div class="listDivider"></div> 
+          <a href="#" class="list-group-item-action">Profile</a>
+          <div class="listDivider"></div> 
+          <a href="#" class="list-group-item-action">Taks</a>
+          <div class="listDivider"></div> 
+          <a href="/logout" class="list-group-item-action">Log Out</a>
+        </div>
+      </div>
+      <!-- /#sidebar-wrapper -->
+      <div id="page-content-wrapper">
+        <div>
+          <a id="menu-toggle" style="margin-left: -70px;"><img style="width: 50px; margin-top: 25px;" src="{% static 'images/MenuSandwich.png' %}"></a>
+        </div>
+
+        <div style="position: absolute; padding-top: max(500px, calc(100vh - 180px)); margin-left: -75px;">
+            <img style="width: 65px;" src="{% static 'images/logo_brown.png' %}" />
+        </div>
+
+        <!-- conteudo da pagina -->
+        {% block content %}
+
+        {% endblock %}
+      </div>
+    </div>
+
+
+
+
+</body>
+  
+  
+    <script src="{% static 'js/jquery.min.js'%}" ></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+  
+  
+    <!--Script da aba de menu-->
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+  
+
+  
+</html>
+  

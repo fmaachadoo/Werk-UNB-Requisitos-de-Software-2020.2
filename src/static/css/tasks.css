@@ -1,0 +1,157 @@
+@font-face{
+    font-family: 'Rozha-One';
+    src:url("fonts/RozhaOne-Regular.ttf");
+}
+
+@font-face{
+    font-family: 'Rufina-Bold';
+    src:url("fonts/Rufina-Bold.ttf");
+}
+
+@font-face{
+    font-family: 'Rufina';
+    src:url("fonts/Rufina-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Product-Sans';
+    src: url("fonts/Product-Sans.ttf");
+}
+
+.tasks-title{
+    font-family: 'Rufina';
+    color: #F2DCC2;
+    font-size: 30px;
+}
+
+.pillBtn-light{
+    padding: 6px 10px 6px 10px;
+    background-color: #F2DCC2;
+    color: #0D0D0D;
+    border-radius: 100px;
+    border:none;
+    text-align: center;
+    display: inline-block;
+    text-overflow: ellipsis;
+    font-family: 'Product-Sans';
+
+    transition: all .3s ease;
+
+    font-size: 18px;
+    width: 200px;
+}
+
+.pillBtn-light:hover{
+    transform: scale(1.1);
+    background-color: #e0ceb7;
+}
+
+.pillBtn-light:focus{
+    outline: none;
+}
+
+
+.divider{
+    position: absolute;
+    height: 80vh;
+    width: 1px;
+    background-color: #F2DCC2;
+}
+
+.listDivider{
+    width: 200px;
+    height: 1px;
+
+    margin-left: 20px;
+    background-color: #0D0D0D;
+}
+
+.imgBtn{
+    transition: all .3s ease;
+}
+
+.imgBtn:hover{
+    transform: scale(1.2);
+}
+
+.taskCard{
+    width: max(90%, 40vw);
+
+    background-color: #40372F;
+
+    border-radius: 10px;
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.taskTitle{
+    color: #FFFFFF;
+
+    font-size: 22px;
+    font-family: 'Product-Sans';
+
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.taskBody{
+    color: #b1b1b1;
+
+    width: 90%;
+
+    font-size: 15px;
+    font-family: 'Product-Sans';
+
+    margin-top: 10px;
+    margin-left: 30px;
+}
+
+.elipseBtn{
+    background-color: #F2DCC2;
+  
+    padding: 15px;
+  
+    transition: all .4s ease;
+  
+    border-radius: 300px;
+    border: none;
+    outline: none;
+}
+  
+.elipseBtn:focus{
+    outline: none;
+    background-color: #e0ceb7;
+}
+  
+.elipseBtn:hover{
+    transform: scale(1.1);
+}
+
+.timeBtn{
+    background-color: #F2DCC2;
+    
+    padding: 5px 25px 5px 25px;
+
+    font-size: 20px;
+    
+    border-radius: 20px;
+    border: none;
+
+    font-family: 'Product-Sans';
+
+    transition: all .4s ease;
+
+    margin-top: 25px;
+    margin-left: 20px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.timeBtn:hover{
+    transform: scale(1.1);
+}
+
+.timeBtn:focus{
+    outline: none;
+}
