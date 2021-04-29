@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import WerkUser, Workspace, Activity
+from .models import WerkUser, Workspace, Activity, WerkTask
 
 
 def homeView(request):
@@ -13,7 +13,6 @@ def homeView(request):
         return render(request, 'home_login.html')
     else:
         return render(request, 'home.html')
-
 
 
 def loginView(request):
@@ -31,6 +30,7 @@ def loginView(request):
         else:
             messages.warning(request, "Email ou Senha incorretos!")
     return render(request, 'login.html')
+
 
 def cadastroView(request):
     if request.POST:
@@ -57,7 +57,9 @@ def cadastroView(request):
         new_user.workspace_id = new_workspace.id
         new_user.archived_workspace_id = new_archived_workspace.id
         new_user.save()
-        return homeView(request)
+
+        login(request, new_user)
+        return redirect("/")
 
     return render(request, 'cadastro.html')
 
@@ -68,3 +70,17 @@ def logoutUser(request):
         logout(request)
 
     return redirect('/')
+
+
+def addTask(request):
+    if request.POST:
+        if user.is_authenticated:
+            new_task = WerkTask()
+            new_task.user = request.id
+            new_task.title =  request.POST['titulo']
+            new_task.body = request.POST['corpo']
+            new_task.save()
+        return redirect("/")
+    return render(request, 'newTask.html')
+
+
