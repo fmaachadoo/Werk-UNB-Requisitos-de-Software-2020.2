@@ -110,7 +110,7 @@
 .elipseBtn{
     background-color: #F2DCC2;
   
-    padding: 10px;
+    padding: 15px;
   
     transition: all .4s ease;
   
@@ -144,7 +144,7 @@
 
     margin-top: 25px;
     margin-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .timeBtn:hover{
