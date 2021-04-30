@@ -113,9 +113,15 @@ def finishTask(request, id):
     if request.POST:
         if user.is_authenticated:
             task = WerkTask.objects.get(user=user, id=id)
-            if task.end is None:
-                delta = datetime.now().date() - task.start_time
+            if task.end_time is None:
+                task.end_time = datetime.now()
                 task.done = True
                 task.save()
+                finishTask(request, id)
+            else:
+                temp = task.end_time - task.start_time
+                task.total_time = temp
+                task.save()
+
     
     return redirect("/")

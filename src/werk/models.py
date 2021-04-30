@@ -36,5 +36,6 @@ class WerkTask(models.Model):
     title = models.CharField(max_length=30)
     body = models.TextField()
     done = models.BooleanField(default=False)
-    start_time = models.DateField(null=True)
-    end = models.DateField(null=True)
+    start_time = models.DateTimeField(null=True)
+    end_time = models.DateTimeField(null=True)
+    total_time = models.DurationField(null=True)
