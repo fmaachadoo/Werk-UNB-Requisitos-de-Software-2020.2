@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import WerkUser, Workspace, Activity, WerkTask
+from django.template import RequestContext
+from datetime import datetime
 
 
 def homeView(request):
@@ -89,6 +91,20 @@ def addTask(request):
 
 def removeTask(request, id):
     user = request.user
-    if user.is_authenticated:
-        task = WerkTask.objects.filter(user=user, id=id).delete()
+    if request.POST:
+        if user.is_authenticated:
+            task = WerkTask.objects.filter(user=user, id=id).delete()
+    
     return redirect("/")
+
+def startTask(request, id):
+    user = request.user
+    if request.POST:
+        if user.is_authenticated:
+            task = WerkTask.objects.get(user=user, id=id)
+            if task.start_time is None:
+                task.start_time = datetime.now()
+                task.save()
+    
+    return redirect("/")
+
