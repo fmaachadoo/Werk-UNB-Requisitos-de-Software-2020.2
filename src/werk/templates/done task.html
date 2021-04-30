@@ -3,7 +3,7 @@
 
 
 {% for task in DoneTasks %}
-    <div class="d-flex align-content-start" style="margin-left: 50px;">
+    <div class="d-flex align-content-start" style="margin-left: 100px;">
         <div class="taskCard">
             <div class="row">
                 <div class="col-md-12" style="margin-left: 15px; margin-top: 15px;">
@@ -28,8 +28,8 @@
                     <button type="submit" class="elipseBtn" style="padding: 7px 7px 7px 7px;"><img src="{% static 'images/TrashCan.png' %}" style="height: 25px; margin-top: -3px;"/></button>
                 </form>
 
-                <div class="col-md-5">
-                    <div class="timeBtn" style="transform: none; background-color: #0D0D0D; color: #f2dcc2;">{{task.task_time}}<img src="{% static 'images/ClockLight.png' %}" style="height: 25px; margin-left: 25px; margin-top: -5px;"/></div>
+                <div class="col-md-5 d-flex justify-content-end">
+                    <div class="timeBtn" style="transform: none; background-color: #0D0D0D; color: #f2dcc2;">{{task.taskTime}}<img src="{% static 'images/ClockLight.png' %}" style="height: 25px; margin-top: -5px; margin-left: 25px;"/></div>
                 </div>
             </div>
         </div>

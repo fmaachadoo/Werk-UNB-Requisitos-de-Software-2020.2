@@ -1,8 +1,7 @@
 from django.db import models
 from django import forms
 from django.contrib.auth.models import User
-from django.forms.widgets import TextInput
-from django.utils.dateparse import parse_duration
+from datetime import datetime
 
 
 class Workspace(models.Model):
@@ -43,7 +42,8 @@ class WerkTask(models.Model):
     end_time = models.DateTimeField(null=True)
     total_time = models.DurationField(null=True)
     
-    def task_time(self):
+    #Reformat the time duration
+    def taskTime(self):
         sec = self.total_time.total_seconds()
         if sec < 60:
             return '%01dseg' % int(sec)
