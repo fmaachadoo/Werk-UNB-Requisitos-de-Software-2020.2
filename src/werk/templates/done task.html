@@ -18,14 +18,19 @@
             </div>
 
             <div class="row">
-                <div class="col-md-5">
-                    <div class="timeBtn" style="transform: none; background-color: #0D0D0D; color: #f2dcc2;">{{task.total_time}}<img src="{% static 'images/ClockLight.png' %}" style="height: 25px; margin-left: 25px; margin-top: -5px;"/></div>
-                </div>
+                <form class="col-md-5" action="{% url 'startTask' task.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="timeBtn"><img src="{% static 'images/ContinueArrow.png' %}" style="height: 25px; margin-right: 25px; margin-top: -5px;"/>Continuar</button>
+                </form>
 
-                <form class="col-md-1" action="{% url 'removeTask' task.id %}" method="post" style="margin-left: -20px; margin-top: 25px;">
+                <form class="col-md-2" action="{% url 'removeTask' task.id %}" method="post" style="margin-left: -20px; margin-top: 25px;">
                     {% csrf_token %}
                     <button type="submit" class="elipseBtn" style="padding: 7px 7px 7px 7px;"><img src="{% static 'images/TrashCan.png' %}" style="height: 25px; margin-top: -3px;"/></button>
                 </form>
+
+                <div class="col-md-5">
+                    <div class="timeBtn" style="transform: none; background-color: #0D0D0D; color: #f2dcc2;">{{task.task_time}}<img src="{% static 'images/ClockLight.png' %}" style="height: 25px; margin-left: 25px; margin-top: -5px;"/></div>
+                </div>
             </div>
         </div>
     </div>
