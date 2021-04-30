@@ -125,3 +125,15 @@ def finishTask(request, id):
 
     
     return redirect("/")
+
+def returnTask(request, id):
+    user = request.user
+    if request.POST:
+        if user.is_authenticated:
+            task = WerkTask.objects.get(user=user, id=id)
+            if task.done is True:
+                task.done = False
+                task.start_time = None
+                task.end_time = None
+                task.save()
+    return redirect("/")

@@ -35,7 +35,7 @@
                 </form>
                     
                 {% if task.start_time is not None %}
-                    <form class="col-md-6 d-flex justify-content-center" action="{% url 'finishTask' task.id %}" method="post">
+                    <form class="col-md-6 d-flex justify-content-end" action="{% url 'finishTask' task.id %}" method="post">
                         {% csrf_token %}
                         <button type="submit" class="timeBtn">Finaliza Tarefa<img style="margin-left: 25px; margin-top: -5px; height: 25px;" src="{% static 'images/FinishArrow.png' %}"/></button>
                     </form>

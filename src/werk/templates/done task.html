@@ -18,7 +18,7 @@
             </div>
 
             <div class="row">
-                <form class="col-md-5" action="{% url 'startTask' task.id %}" method="post">
+                <form class="col-md-5" action="{% url 'returnTask' task.id %}" method="post">
                     {% csrf_token %}
                     <button type="submit" class="timeBtn"><img src="{% static 'images/ContinueArrow.png' %}" style="height: 25px; margin-right: 25px; margin-top: -5px;"/>Continuar</button>
                 </form>

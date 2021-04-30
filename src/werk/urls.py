@@ -11,4 +11,5 @@ urlpatterns = [
     path('<id>/delete', views.removeTask, name="removeTask"),
     path('<id>/start', views.startTask, name="startTask"),
     path('<id>/end', views.finishTask, name="finishTask"),
+    path('<id>/back', views.returnTask, name="returnTask"),
 ]
