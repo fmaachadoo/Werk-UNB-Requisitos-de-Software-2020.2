@@ -13,9 +13,19 @@ def homeView(request):
         CurrentTasks = WerkTask.objects.filter(user=user, done=False)
         DoneTasks = WerkTask.objects.filter(user=user, done=True)
 
+        if request.POST and request.POST.get('action') == 'create-task':
+            new_task = WerkTask()
+            new_task.user = request.user
+            new_task.title = request.POST.get('titulo')
+            new_task.body = request.POST.get('corpo')
+            new_task.save()
+            return redirect("/")
+
         return render(request, 'home_login.html', {'UserTasks': CurrentTasks, 'DoneTasks': DoneTasks})
     else:
         return render(request, 'home.html')
+
+
 
 
 def loginView(request):
@@ -75,14 +85,4 @@ def logoutUser(request):
     return redirect('/')
 
 
-def addTask(request):
-    user = request.user
-    if request.POST:
-        if user.is_authenticated:
-            new_task = WerkTask()
-            new_task.user = request.user
-            new_task.title = request.POST['titulo']
-            new_task.body = request.POST['corpo']
-            new_task.save()
-        return redirect("/")
-    return render(request, 'newTask.html')
+

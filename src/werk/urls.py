@@ -6,6 +6,5 @@ urlpatterns = [
     path('', views.homeView, name="werk-home"),
     path('login', views.loginView, name="werk-login"),
     path('logout', views.logoutUser, name="werk-logout"),
-    path('cadastro', views.cadastroView, name="werk-cadastro"),
-    path('task', views.addTask),
+    path('cadastro', views.cadastroView, name="werk-cadastro")
 ]
