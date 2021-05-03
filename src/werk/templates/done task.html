@@ -1,0 +1,41 @@
+{% load static %}
+<link href="{% static 'css/tasks.css' %}" rel="stylesheet">
+
+
+{% for task in DoneTasks %}
+    <div class="d-flex align-content-start" style="margin-left: 5vw;">
+        <div class="taskCard">
+            <div class="row">
+                <div class="col-md-12" style="margin-left: 15px; margin-top: 15px;">
+                    <h1 class="taskTitle">{{ task.title }}</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="taskBody">{{ task.body }}</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <form class="col-md-5" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" value="return_task" name="action">
+                    <input type="hidden" value="{{ task.id }}" name="task_id">
+                    <button type="submit" class="timeBtn"><img src="{% static 'images/ContinueArrow.png' %}" style="height: 20px; margin-right: 25px; margin-top: -5px;"/>Continuar</button>
+                </form>
+
+                <form class="col-md-2" method="post" style="margin-left: -20px; margin-top: 25px;">
+                    {% csrf_token %}
+                    <input type="hidden" value="remove_task" name="action">
+                    <input type="hidden" value="{{ task.id }}" name="task_id">
+                    <button type="submit" class="elipseBtn" style="padding: 5px 5px 5px 5px;"><img src="{% static 'images/TrashCan.png' %}" style="height: 25px; margin-top: -7px;"/></button>
+                </form>
+
+                <div class="col-md-5 d-flex justify-content-end">
+                    <div class="timeBtn" style="transform: none; background-color: #0D0D0D; color: #f2dcc2;">{{task.duration}}<img src="{% static 'images/ClockLight.png' %}" style="height: 25px; margin-top: -5px; margin-left: 25px;"/></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

@@ -16,7 +16,8 @@
     text-align: center;
     display: inline-block;
     text-overflow: ellipsis;
-    font-family: 'Rozha-One';
+    font-family: 'Rufina';
+
     font-weight: 800;
     font-size: 18px;
     width: 200px;
@@ -28,7 +29,12 @@
     text-decoration: none;
 }
 
+.pillBtn:focus{
+    outline: none;
+}
+
 body{
+    overflow: hidden;
     background-color: #40372F;
 }
 
@@ -37,7 +43,7 @@ body{
 }
 
 .title {
-    font-family: 'Rozha-One';
+    font-family: 'Rufina';
     font-size: 120px;
     color: black;
 }
@@ -46,7 +52,7 @@ body{
     padding: 130px;
     background-color: #0D0D0D;
     color: #BFA893;
-    font-family: 'Rozha-One';
+    font-family: 'Rufina';
     font-size: 24px;
     font-weight: 800;
 }
@@ -56,7 +62,8 @@ body{
 }
 
 .description-text{
-    color: #F2DCC2;
+    color: #BFA893;
+    font-family: 'Rufina';
     font-size: 18px;
     font-weight: 800;
 }
@@ -70,25 +77,75 @@ body{
     background-color: #40372f;
 }
 
-.large-button {
-    padding: 12px 180px 12px 180px;
-    margin-top: 20px;
-    background-color: #BFA893;
-    color: #0D0D0D;
-    border-radius: 100px;
+
+form label{
+    font-size: 20px;
+}
+
+form input[type='email']{
+    width: 90%;
+    height: 30px;
+    margin-bottom: 10%;
+
+    color: #C2C2C2;
+    background-color: #40372F;
+
     border:none;
+    border-radius: 3px;
+
+    font-size: larger;
+}
+
+.entrarBtn{
+    padding: 13px 0px 13px 0px;
+    background-color: #8C7B6C;
+    color: #0d0d0d;
+
+    border-radius: 50px;
+    border:none;
+
     text-align: center;
     display: inline-block;
     text-overflow: ellipsis;
-    font-family: 'Rozha-One';
+    font-family: 'Rufina';
+
     font-weight: 800;
-    font-size: 24px;
-    width: 40vw;
+    font-size: 22px;
+    width: 90%;
+
+    margin-bottom: 8%;
+
+    text-decoration: none;
 }
 
-.large-button:hover {
-    background-color: #8C7B6C;
-    color: #F2DCC2;
-
+.entrarBtn:hover{
+    background-color: #BFA893;
+    color: #0d0d0d;
+    text-decoration: none;
 }
 
+
+.line{
+    height: 2px;
+    width: 100%;
+
+    margin-bottom: 20%;
+
+    background-color: #BFA893;
+}
+
+.tag{
+    text-align: center;
+
+
+    margin-top: -15px;
+
+    font-size: 25px;
+
+    color: #BFA893;
+    background-color: #F2DCC2;
+}
+
+.btnLogo{
+    height: 25px;
+}
