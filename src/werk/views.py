@@ -4,27 +4,30 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import WerkUser, Workspace, Activity, WerkTask
+from .models import WerkUser, WerkTask
 
 
 def homeView(request):
     user = request.user
     if user.is_authenticated:
-        CurrentTasks = WerkTask.objects.filter(user=user, done=False)
-        DoneTasks = WerkTask.objects.filter(user=user, done=True)
+        current_tasks = WerkTask.objects.filter(user=user, done=False, archived=False)
+        done_tasks = WerkTask.objects.filter(user=user, done=True,  archived=False)
 
-        if request.POST and request.POST.get('action') == 'create-task':
-            new_task = WerkTask()
-            new_task.user = request.user
-            new_task.title = request.POST.get('titulo')
-            new_task.body = request.POST.get('corpo')
-            new_task.save()
-            return redirect("/")
+        if request.POST:
+            request_action = request.POST.get('action')
+            if request_action == 'create-task':
+                new_task = WerkTask()
+                new_task.user = request.user
+                new_task.title = request.POST.get('titulo')
+                new_task.body = request.POST.get('corpo')
+                new_task.save()
+                return redirect("/")
+            if request_action == 'update_task_status':
+                task = request.POST.get('task')
 
-        return render(request, 'home_login.html', {'UserTasks': CurrentTasks, 'DoneTasks': DoneTasks})
+        return render(request, 'home_login.html', {'UserTasks': current_tasks, 'DoneTasks': done_tasks})
     else:
         return render(request, 'home.html')
-
 
 
 
@@ -53,22 +56,12 @@ def cadastroView(request):
         if existing_user:
             return render(request, 'cadastro.html')
 
-        new_workspace = Workspace()
-        new_workspace.title = 'Area de Trabalho de ' + str(request.POST['first-name'] or 'Usuário')
-        new_workspace.save()
-
-        new_archived_workspace = Workspace()
-        new_archived_workspace.title = 'Tarefas Arquivadas'
-        new_archived_workspace.save()
-
         new_user = WerkUser()
         new_user.first_name = request.POST['first-name']
         new_user.last_name = request.POST['last-name']
         new_user.email = request.POST['email']
         new_user.username = username
         new_user.password = password
-        new_user.workspace_id = new_workspace.id
-        new_user.archived_workspace_id = new_archived_workspace.id
         new_user.save()
 
         login(request, new_user)
