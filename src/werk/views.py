@@ -7,6 +7,7 @@ from django.contrib import messages
 from .models import WerkUser, Workspace, Activity, WerkTask
 from django.template import RequestContext
 from datetime import datetime
+from django.utils import timezone
 
 
 def homeView(request):
@@ -68,7 +69,7 @@ def cadastroView(request):
 
     return render(request, 'cadastro.html')
 
-
+#Logout do Usuario
 def logoutUser(request):
     user = request.user
     if user.is_authenticated:
@@ -77,6 +78,7 @@ def logoutUser(request):
     return redirect('/')
 
 
+#Adicionar Tarefa
 def addTask(request):
     user = request.user
     if request.POST:
@@ -85,18 +87,23 @@ def addTask(request):
             new_task.user = request.user
             new_task.title =  request.POST['titulo']
             new_task.body = request.POST['corpo']
-            new_task.save()
-        return redirect("/")
-    return render(request, 'newTask.html')
 
+            #Salvar Task
+            new_task.save()
+
+        return redirect("/")
+    return render(request, 'newTask.html') 
+
+#Deletar Tarefa
 def removeTask(request, id):
     user = request.user
     if request.POST:
         if user.is_authenticated:
             task = WerkTask.objects.filter(user=user, id=id).delete()
-    
-    return redirect("/")
+    return redirect("/") 
 
+
+#Iniciar hora da tarefa
 def startTask(request, id):
     user = request.user
     if request.POST:
@@ -108,6 +115,8 @@ def startTask(request, id):
     
     return redirect("/")
 
+
+#Terminar tarefa
 def finishTask(request, id):
     user = request.user
     if request.POST:
@@ -126,6 +135,7 @@ def finishTask(request, id):
     
     return redirect("/")
 
+#continuar tarefa
 def returnTask(request, id):
     user = request.user
     if request.POST:
