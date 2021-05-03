@@ -1,25 +1,14 @@
 @font-face{
     font-family: 'Rozha-One';
-    src:url("fonts/RozhaOne-Regular.ttf");
+    src:url('{% static "fonts/RozhaOne-Regular.otf" %}')
 }
-
-@font-face{
-    font-family: 'Rufina-Bold';
-    src:url("fonts/Rufina-Bold.ttf");
-}
-
-@font-face{
-    font-family: 'Rufina';
-    src:url("fonts/Rufina-Regular.ttf");
-}
-
 
 .container {
     max-width: 1500px !important;
 }
 
 .pillBtn{
-    padding: 12px 20px 12px 20px;
+    padding: 12px 80px 12px 80px;
     background-color: #40372F;
     color: #F2DCC2;
     border-radius: 100px;
