@@ -7,5 +7,9 @@ urlpatterns = [
     path('login', views.loginView, name="werk-login"),
     path('logout', views.logoutUser, name="werk-logout"),
     path('cadastro', views.cadastroView, name="werk-cadastro"),
-    path('task', views.addTask),
+    path('addTask', views.addTask),
+    path('<id>/delete', views.removeTask, name="removeTask"),
+    path('<id>/start', views.startTask, name="startTask"),
+    path('<id>/end', views.finishTask, name="finishTask"),
+    path('<id>/back', views.returnTask, name="returnTask"),
 ]
