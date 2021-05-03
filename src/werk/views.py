@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import WerkUser, Workspace, Activity, WerkTask
+from .models import WerkUser, WerkTask
 from django.template import RequestContext
 from datetime import datetime
 from django.utils import timezone
@@ -13,12 +13,66 @@ from django.utils import timezone
 def homeView(request):
     user = request.user
     if user.is_authenticated:
-        CurrentTasks = WerkTask.objects.filter(user=user, done=False)
-        DoneTasks = WerkTask.objects.filter(user=user, done=True)
+        current_tasks = WerkTask.objects.filter(user=user, done=False, archived=False)
+        done_tasks = WerkTask.objects.filter(user=user, done=True,  archived=False)
 
-        return render(request, 'home_login.html', {'UserTasks': CurrentTasks, 'DoneTasks': DoneTasks})
+        if request.POST:
+            request_action = request.POST.get('action')
+            if request_action == 'create-task':
+                create_task(request)
+            elif request_action == 'finish_task':
+                finish_task(request, user)
+            elif request_action == 'return_task':
+                return_task(request, user)
+            elif request_action == 'start_task':
+                start_task(request, user)
+            elif request_action == 'remove_task':
+                remove_task(request, user)
+
+        return render(request, 'home_login.html', {'UserTasks': current_tasks, 'DoneTasks': done_tasks})
     else:
         return render(request, 'home.html')
+
+
+def remove_task(request, user):
+    task = WerkTask.objects.filter(user=user, id=request.POST.get('task_id')).delete()
+
+
+def start_task(request, user):
+    task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
+    if task.start_time is None:
+        task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
+        task.start_time = datetime.now()
+        task.save()
+
+
+def return_task(request, user):
+    task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
+    if task.done is True:
+        task.done = False
+        task.start_time = None
+        task.end_time = None
+        task.save()
+
+
+def finish_task(request, user):
+    task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
+    if task.end_time is None:
+        task.end_time = datetime.now()
+        task.done = True
+        task.save()
+    else:
+        duration_time = task.end_time - task.start_time
+        task.total_time = duration_time
+        task.save()
+
+
+def create_task(request):
+    new_task = WerkTask()
+    new_task.user = request.user
+    new_task.title = request.POST.get('titulo')
+    new_task.body = request.POST.get('corpo')
+    new_task.save()
 
 
 def loginView(request):
@@ -46,22 +100,12 @@ def cadastroView(request):
         if existing_user:
             return render(request, 'cadastro.html')
 
-        new_workspace = Workspace()
-        new_workspace.title = 'Area de Trabalho de ' + str(request.POST['first-name'] or 'Usuário')
-        new_workspace.save()
-
-        new_archived_workspace = Workspace()
-        new_archived_workspace.title = 'Tarefas Arquivadas'
-        new_archived_workspace.save()
-
         new_user = WerkUser()
         new_user.first_name = request.POST['first-name']
         new_user.last_name = request.POST['last-name']
         new_user.email = request.POST['email']
         new_user.username = username
         new_user.password = password
-        new_user.workspace_id = new_workspace.id
-        new_user.archived_workspace_id = new_archived_workspace.id
         new_user.save()
 
         login(request, new_user)
@@ -78,71 +122,4 @@ def logoutUser(request):
     return redirect('/')
 
 
-#Adicionar Tarefa
-def addTask(request):
-    user = request.user
-    if request.POST:
-        if user.is_authenticated:
-            new_task = WerkTask()
-            new_task.user = request.user
-            new_task.title = request.POST['titulo']
-            new_task.body = request.POST['corpo']
 
-            #Salvar Task
-            new_task.save()
-
-        return redirect("/")
-
-#Deletar Tarefa
-def removeTask(request, id):
-    user = request.user
-    if request.POST:
-        if user.is_authenticated:
-            task = WerkTask.objects.filter(user=user, id=id).delete()
-    return redirect("/") 
-
-
-#Iniciar hora da tarefa
-def startTask(request, id):
-    user = request.user
-    if request.POST:
-        if user.is_authenticated:
-            task = WerkTask.objects.get(user=user, id=id)
-            if task.start_time is None:
-                task.start_time = datetime.now()
-                task.save()
-    
-    return redirect("/")
-
-
-#Terminar tarefa
-def finishTask(request, id):
-    user = request.user
-    if request.POST:
-        if user.is_authenticated:
-            task = WerkTask.objects.get(user=user, id=id)
-            if task.end_time is None:
-                task.end_time = datetime.now()
-                task.done = True
-                task.save()
-                finishTask(request, id)
-            else:
-                temp = task.end_time - task.start_time
-                task.total_time = temp
-                task.save()
-
-    
-    return redirect("/")
-
-#continuar tarefa
-def returnTask(request, id):
-    user = request.user
-    if request.POST:
-        if user.is_authenticated:
-            task = WerkTask.objects.get(user=user, id=id)
-            if task.done is True:
-                task.done = False
-                task.start_time = None
-                task.end_time = None
-                task.save()
-    return redirect("/")
