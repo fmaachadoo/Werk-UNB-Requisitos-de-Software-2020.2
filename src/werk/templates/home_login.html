@@ -1,5 +1,7 @@
 {% extends 'baseUserLogged.html' %}
 {% load static %}
+<link href="{% static 'css/tasks.css' %}" rel="stylesheet">
+
 
 
 {% block content %}
@@ -28,7 +30,7 @@
                 <div class="modal fade" tabindex="-1" data-bs-backdrop="static" id="newTaskModal"
                      aria-labelledby="newTaskModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                        <div class="modal-content taskCard">
+                        <div class="modal-content" style="background-color: #40372F;">
                             <div class="modal-title p-4">
                                 <h1 class="display-6" style="color: white;">Criar Tarefa</h1>
                             </div>

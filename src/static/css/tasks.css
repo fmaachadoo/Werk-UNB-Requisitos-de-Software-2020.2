@@ -74,17 +74,6 @@
     transform: scale(1.2);
 }
 
-.taskCard{
-    width: 95%;
-
-    background-color: #40372F;
-
-    border-radius: 10px;
-
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
 .taskTitle{
     color: #FFFFFF;
 
