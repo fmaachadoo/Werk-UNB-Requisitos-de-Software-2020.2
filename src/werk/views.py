@@ -5,6 +5,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import WerkUser, WerkTask
+from django.template import RequestContext
+from datetime import datetime
+from django.utils import timezone
 
 
 def homeView(request):
@@ -16,19 +19,60 @@ def homeView(request):
         if request.POST:
             request_action = request.POST.get('action')
             if request_action == 'create-task':
-                new_task = WerkTask()
-                new_task.user = request.user
-                new_task.title = request.POST.get('titulo')
-                new_task.body = request.POST.get('corpo')
-                new_task.save()
-                return redirect("/")
-            if request_action == 'update_task_status':
-                task = request.POST.get('task')
+                create_task(request)
+            elif request_action == 'finish_task':
+                finish_task(request, user)
+            elif request_action == 'return_task':
+                return_task(request, user)
+            elif request_action == 'start_task':
+                start_task(request, user)
+            elif request_action == 'remove_task':
+                remove_task(request, user)
 
         return render(request, 'home_login.html', {'UserTasks': current_tasks, 'DoneTasks': done_tasks})
     else:
         return render(request, 'home.html')
 
+
+def remove_task(request, user):
+    task = WerkTask.objects.filter(user=user, id=request.POST.get('task_id')).delete()
+
+
+def start_task(request, user):
+    task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
+    if task.start_time is None:
+        task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
+        task.start_time = datetime.now()
+        task.save()
+
+
+def return_task(request, user):
+    task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
+    if task.done is True:
+        task.done = False
+        task.start_time = None
+        task.end_time = None
+        task.save()
+
+
+def finish_task(request, user):
+    task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
+    if task.end_time is None:
+        task.end_time = datetime.now()
+        task.done = True
+        task.save()
+    else:
+        duration_time = task.end_time - task.start_time
+        task.total_time = duration_time
+        task.save()
+
+
+def create_task(request):
+    new_task = WerkTask()
+    new_task.user = request.user
+    new_task.title = request.POST.get('titulo')
+    new_task.body = request.POST.get('corpo')
+    new_task.save()
 
 
 def loginView(request):
@@ -69,7 +113,7 @@ def cadastroView(request):
 
     return render(request, 'cadastro.html')
 
-
+#Logout do Usuario
 def logoutUser(request):
     user = request.user
     if user.is_authenticated:
