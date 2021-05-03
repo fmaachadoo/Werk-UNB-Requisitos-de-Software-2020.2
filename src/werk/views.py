@@ -13,7 +13,7 @@ def homeView(request):
         CurrentTasks = WerkTask.objects.filter(user=user, done=False)
         DoneTasks = WerkTask.objects.filter(user=user, done=True)
 
-        return render(request, 'home_login.html', {'UserTasks':CurrentTasks, 'DoneTasks':DoneTasks})
+        return render(request, 'home_login.html', {'UserTasks': CurrentTasks, 'DoneTasks': DoneTasks})
     else:
         return render(request, 'home.html')
 
@@ -81,9 +81,8 @@ def addTask(request):
         if user.is_authenticated:
             new_task = WerkTask()
             new_task.user = request.user
-            new_task.title =  request.POST['titulo']
+            new_task.title = request.POST['titulo']
             new_task.body = request.POST['corpo']
             new_task.save()
         return redirect("/")
     return render(request, 'newTask.html')
-
