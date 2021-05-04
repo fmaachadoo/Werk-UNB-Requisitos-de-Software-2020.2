@@ -2,19 +2,21 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
+from django.db.models import Sum
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import WerkUser, WerkTask
 from django.template import RequestContext
-from datetime import datetime
+from datetime import datetime, timezone
 from django.utils import timezone
 
 
+# View homepage
 def homeView(request):
     user = request.user
     if user.is_authenticated:
         current_tasks = WerkTask.objects.filter(user=user, done=False, archived=False)
-        done_tasks = WerkTask.objects.filter(user=user, done=True,  archived=False)
+        done_tasks = WerkTask.objects.filter(user=user, done=True, archived=False)
 
         if request.POST:
             request_action = request.POST.get('action')
@@ -28,6 +30,8 @@ def homeView(request):
                 start_task(request, user)
             elif request_action == 'remove_task':
                 remove_task(request, user)
+            elif request_action == 'archive_tasks':
+                archive_tasks(request, user)
 
         return render(request, 'home_login.html', {'UserTasks': current_tasks, 'DoneTasks': done_tasks})
     else:
@@ -42,7 +46,7 @@ def start_task(request, user):
     task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
     if task.start_time is None:
         task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
-        task.start_time = datetime.now()
+        task.start_time = datetime.now(timezone.utc)
         task.save()
 
 
@@ -58,12 +62,21 @@ def return_task(request, user):
 def finish_task(request, user):
     task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
     if task.end_time is None:
-        task.end_time = datetime.now()
+        task.end_time = datetime.now(timezone.utc)
         task.done = True
+        task.duration = task.end_time - task.start_time
         task.save()
     else:
         duration_time = task.end_time - task.start_time
-        task.total_time = duration_time
+
+        task.duration = duration_time
+        task.save()
+
+
+def archive_tasks(request, user):
+    task_list = WerkTask.objects.filter(user=user, done=True, archived=False)
+    for task in task_list:
+        task.archived = True
         task.save()
 
 
@@ -113,7 +126,8 @@ def cadastroView(request):
 
     return render(request, 'cadastro.html')
 
-#Logout do Usuario
+
+# Logout do Usuario
 def logoutUser(request):
     user = request.user
     if user.is_authenticated:
@@ -122,4 +136,14 @@ def logoutUser(request):
     return redirect('/')
 
 
-
+def dashboardView(request):
+    user = request.user
+    if user.is_authenticated:
+        response_objects = {
+            'done_tasks': WerkTask.objects.filter(user=user, done=False, archived=False),
+            'archived_task_list': WerkTask.objects.filter(user=user, archived=True),
+            'archived_task_count': WerkTask.objects.filter(user=user, archived=True).count(),
+            'total_task_count': WerkTask.objects.filter(user=user).count(),
+            'total_task_elapsed_time': WerkTask.objects.filter(user=user).aggregate(Sum('duration')).get('duration__sum')
+        }
+        return render(request, 'dashboard.html', response_objects)
