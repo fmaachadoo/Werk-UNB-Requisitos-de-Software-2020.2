@@ -3,6 +3,17 @@
 {% load static %}
 
 {% block content %}
+    <style>
+        .btn-start
+        {
+            color: #40372F;
+            background-color: #F2DCC2;
+            border-color: #F2DCC2;
+            width: 600px;
+            margin-top: 50px;
+        }
+    </style>
+
     <div class="row justify-content-center align-content-center">
         <div class="col-lg-12 row">
             <div class="col-lg-12">
@@ -23,11 +34,17 @@
             </div>
         </div>
         <div class="col-md-12 row align-items-center justify-content-center">
-
-        <button class="col-md-6 large-button px-0">Start using Werk now</button>
-
+            <button type="button" class="btn btn-primary btn-lg btn-block btn-start">Start using Werk now</button>
+            <!-- <button class="col-md-6 large-button px-0">Start using Werk now</button> -->
         </div>
     </div>
 
+    <script>
+        $(function() {
+            $(".btn-start").on("click", function() {
+                window.location.href = "/cadastro";
+            });
+        });
+    </script>
 
 {% endblock %}
