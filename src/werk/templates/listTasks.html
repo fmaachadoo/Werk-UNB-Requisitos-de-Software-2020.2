@@ -29,7 +29,7 @@
                     </form>
                 {% else %}
                     <div class="col-md-5">
-                        <button class="timeBtn" style="transform: none">{{ task.start_time }}<img
+                        <button class="timeBtn" style="transform: none">{{ task.start_time|date:'M d, H:i'}}<img
                                 src="{% static 'images/Clock.png' %}"
                                 style="height: 25px; margin-left: 25px; margin-top: -5px;"/></button>
                     </div>
