@@ -50,7 +50,6 @@ def return_task(request, user):
     task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
     if task.done is True:
         task.done = False
-        task.start_time = None
         task.end_time = None
         task.save()
 
