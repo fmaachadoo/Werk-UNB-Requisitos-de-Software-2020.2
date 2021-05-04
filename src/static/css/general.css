@@ -88,25 +88,6 @@ body{
     background-color: #40372f;
 }
 
-
-form label{
-    font-size: 20px;
-}
-
-form input[type='email']{
-    width: 90%;
-    height: 30px;
-    margin-bottom: 10%;
-
-    color: #C2C2C2;
-    background-color: #40372F;
-
-    border:none;
-    border-radius: 3px;
-
-    font-size: larger;
-}
-
 .entrarBtn{
     padding: 13px 0px 13px 0px;
     background-color: #8C7B6C;
