@@ -42,7 +42,7 @@ def start_task(request, user):
     task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
     if task.start_time is None:
         task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
-        task.start_time = datetime.now()
+        task.start_time = timezone.now()
         task.save()
 
 
@@ -58,13 +58,13 @@ def return_task(request, user):
 def finish_task(request, user):
     task = WerkTask.objects.get(user=user, id=request.POST.get('task_id'))
     if task.end_time is None:
-        task.end_time = datetime.now()
+        task.end_time = timezone.now()
         task.done = True
-        task.save()
-    else:
         duration_time = task.end_time - task.start_time
-        task.total_time = duration_time
+        task.duration = duration_time
         task.save()
+        finish_task(request, user)
+
 
 
 def create_task(request):
