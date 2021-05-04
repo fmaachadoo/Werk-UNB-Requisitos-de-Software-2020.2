@@ -8,6 +8,7 @@ from django.contrib import messages
 from .models import WerkUser, WerkTask
 from django.template import RequestContext
 from datetime import datetime, timezone
+from django.core import serializers
 from django.utils import timezone
 
 
@@ -136,11 +137,16 @@ def logoutUser(request):
     return redirect('/')
 
 
+# Dashboard View
 def dashboardView(request):
     user = request.user
     if user.is_authenticated:
+        # These django queries are not optimal and should not be done like that;
+        # It has been done this way for sake of faster implementation.
+        # A query implementation like that makes the performance really bad.
         response_objects = {
             'done_tasks': WerkTask.objects.filter(user=user, done=False, archived=False),
+            'serialized_archived_task_list': serializers.serialize('json', WerkTask.objects.filter(user=user, archived=True)),
             'archived_task_list': WerkTask.objects.filter(user=user, archived=True),
             'archived_task_count': WerkTask.objects.filter(user=user, archived=True).count(),
             'total_task_count': WerkTask.objects.filter(user=user).count(),
