@@ -98,10 +98,13 @@
                         <div style="color: #F2DCC2;">
                             <p>Arquivar Tarefas Realizadas</p>
                         </div>
-
-                        <button href="archiveTask" class="elipseBtn">
-                            <img style="height: 50px;" src="{% static 'images/ArchiveTask.png' %}"/>
-                        </button>
+                        <form style="margin: 0%;" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden" value="archive_tasks" name="action">
+                            <button type="submit" class="elipseBtn">
+                                <img style="height: 50px;" src="{% static 'images/ArchiveTask.png' %}"/>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

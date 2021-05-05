@@ -1,0 +1,93 @@
+{% extends 'baseUserLogged.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Spent time on Activities</h2>
+                        <p class="card-subtitle">Graphic shows activities and the related taken time in seconds</p>
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Archived Tasks</h4>
+
+                        <div class="card-text">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Start Time</th>
+                                    <th scope="col">Duration</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for task in archived_task_list %}
+                                    <tr>
+                                        <td>{{ task.id }}</td>
+                                        <td>{{ task.title }}</td>
+                                        <td>{{ task.start_time }}</td>
+                                        <td>{{ task.duration }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
+
+    <script>
+
+        const data = {
+            labels: {{ serialized_archived_task_list|safe }}.map(function (task) {
+                return task.fields.title;
+            }),
+            datasets: [{
+                label: 'My First Dataset',
+                data: {{ serialized_archived_task_list|safe }}.map(function (task) {
+                        return moment.duration(task.fields.duration).asSeconds();
+                    }
+                ),
+                backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 186)',
+                ],
+                hoverOffset: 4
+            }
+            ]
+        };
+
+        const config = {
+            type: 'doughnut',
+            data
+        };
+
+        var myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+
+    </script>
+
+
+{% endblock %}
+

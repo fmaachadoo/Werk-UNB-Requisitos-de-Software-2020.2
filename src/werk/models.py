@@ -20,7 +20,7 @@ class WerkTask(models.Model):
     body = models.TextField(max_length=800)
     done = models.BooleanField(default=False)
     archived = models.BooleanField(default=False)
-    start_time = models.DateField(null=True, blank=True)
+    start_time = models.DateTimeField(null=True, blank=True)
     end_time = models.DateTimeField(null=True, blank=True)
     duration = models.DurationField(null=True, blank=True)
 
