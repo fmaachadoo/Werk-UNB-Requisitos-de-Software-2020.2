@@ -5,18 +5,18 @@
 {% block content %}
 
     <div class="row">
-        <h1 class="col-12" style="text-align: center;">ENTRAR</h1>
+        <h1 class="col-12" style="text-align: center;">LOGIN</h1>
     </div>
     <div class="row">
-        <p class="col-12" style="text-align: center;">Ainda não possui uma conta?<br><a class="action" href="/cadastro">Registre-se
-            agora!</a></p>
+        <p class="col-12" style="text-align: center;">Don't have an account yet?<br><a class="action" href="/cadastro">Register
+            now!</a></p>
     </div>
 
     <form method="post">
         {% csrf_token %}
         <div class="row">
             <div class="col-9">
-                <label for="usernameInput" style="text-align: left;">Usuario:</label>
+                <label for="usernameInput" style="text-align: left;">User:</label>
             </div>
         </div>
         <div class="row">
@@ -28,7 +28,7 @@
 
         <div class="row">
             <div class="col-9">
-                <label for="passwordInput" style="text-align: left;">Senha:</label>
+                <label for="passwordInput" style="text-align: left;">Password:</label>
             </div>
         </div>
         <div class="row">
@@ -38,14 +38,14 @@
         </div>
         <div class="row">
             <div class="col-11" style="text-align: right;">
-                <a class="action" href="#">Esqueceu sua senha?</a>
+                <a class="action" href="#">Forgot your password?</a>
             </div>
         </div>
         <br>
         <br>
         <div class="row">
             <div class="col-12">
-                <input type="submit" class="entrarBtn" value="ENTRAR"/>
+                <input type="submit" class="entrarBtn" value="LOGIN"/>
             </div>
         </div>
     </form>
@@ -57,7 +57,7 @@
         </div>
 
         <div class="col-2">
-            <div class="tag">OU</div>
+            <div class="tag">OR</div>
         </div>
 
         <div class="col-4">
@@ -76,7 +76,7 @@
                         <img style="height:35px" src="{% static 'images/googleBlack.png' %}"/>
                     </div>
                     <div class="col-8" style="text-align: left;">
-                        <h3 style="font-weight: 800; font-size: 30px;">Entrar com Google</h3>
+                        <h3 style="font-weight: 800; font-size: 30px;">Sign in with Google</h3>
                     </div>
                 </div>
             </a>
