@@ -74,6 +74,8 @@ def create_task(request):
     new_task.body = request.POST.get('corpo')
     new_task.save()
 
+def profileView(request):
+    return render(request, 'profile.html')
 
 def loginView(request):
     if request.POST:
