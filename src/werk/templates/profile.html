@@ -1,0 +1,57 @@
+{% extends 'baseUserLogged.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<style>
+    body{padding-top:30px;}
+
+    .glyphicon {  margin-bottom: 10px;margin-right: 10px; color: white;}
+
+    small {
+        display: block;
+        line-height: 1.428571429;
+        color: #999;
+    }
+
+    .img-profile
+    {
+        width: 190px;
+        height: 190px;
+    }
+
+    .span-email 
+    {
+        color: white;
+    }
+
+    h4, p
+    {
+        color: #F2DCC2 !important;
+    }
+</style>
+
+<div class="container" style="float: left;">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-12">
+                        <img src="{% static 'images/BlankProfilePicture.png' %}" alt="" class="img-profile" />
+                    </div>
+                    <div class="col-12" style="margin-top: 10px;">
+                        <h4>{{user.username}}</h4>
+                        <p>
+                            <span class="span-email">Email: </span>
+                            <br />
+                            {{user.email}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
