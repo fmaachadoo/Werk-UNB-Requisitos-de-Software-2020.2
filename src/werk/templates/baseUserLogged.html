@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author" content="">
+    <title>WERK</title>
 
-<title>WERK</title>
+    <!-- Bootstrap core CSS -->
+    {% load static %}
+    <link href="{% static 'css/general.css' %}" rel="stylesheet">
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link href="{% static 'css/tasks.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
 
-<!-- Bootstrap core CSS -->
-{% load static %}
-<link href="{% static 'css/general.css' %}" rel="stylesheet">
-<link href="{% static 'css/login.css' %}" rel="stylesheet">
-<link href="{% static 'css/tasks.css' %}" rel="stylesheet">
-<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-
-<!-- Custom styles for this template -->
-<link href="{% static 'css/sidebar.css' %}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/sidebar.css' %}" rel="stylesheet">
 
 </head>
 
 <body class="bg-image">
 <div class="d-flex" id="wrapper" style="background-color: rgb(13, 13, 13, 0.7);">
-
     <!-- Sidebar -->
     <div id="sidebar-wrapper" style="background-color:  #F2DCC2;">
         <div class="sidebar-heading" style="height: 130px; font-size: 50px; font-family: 'Rufina-Bold';">MENU
             <br>
-            <p style="font-size: 20px;">Olá, {{ user.username }}</p>
+            <p style="font-size: 20px;">Hello, {{ user.username }}</p>
         </div>
         <div class="list-group list-group-flush">
             <div class="listDivider"></div>
-            <a href="#" class="list-group-item-action">Dashboard</a>
+            <a href="./" class="list-group-item-action">Tasks</a>
             <div class="listDivider"></div>
-            <a href="#" class="list-group-item-action">Profile</a>
+            <a href="/profile" class="list-group-item-action">Profile</a>
             <div class="listDivider"></div>
-            <a href="#" class="list-group-item-action">Taks</a>
+            <a href="/dashboard" class="list-group-item-action">Dashboard</a>
             <div class="listDivider"></div>
             <a href="/logout" class="list-group-item-action">Log Out</a>
         </div>
