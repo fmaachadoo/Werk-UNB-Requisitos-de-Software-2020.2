@@ -1,5 +1,7 @@
 {% extends 'baseUserLogged.html' %}
 {% load static %}
+<link href="{% static 'css/tasks.css' %}" rel="stylesheet">
+
 
 
 {% block content %}
@@ -28,7 +30,7 @@
                 <div class="modal fade" tabindex="-1" data-bs-backdrop="static" id="newTaskModal"
                      aria-labelledby="newTaskModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                        <div class="modal-content taskCard">
+                        <div class="modal-content" style="background-color: #40372F;">
                             <div class="modal-title p-4">
                                 <h1 class="display-6" style="color: white;">Create task</h1>
                             </div>
@@ -41,9 +43,9 @@
                                     <!-- Task Title -->
                                     <div class="row">
                                         <div class="form-group col" style="margin-left: 2%; padding-top: 2%;">
-                                            <label class="taskTitle" for="titulo">Title:</label><br>
-                                            <input class="form-control" type="text" placeholder="Title" name="titulo"
-                                                   aria-describedby="tituloHelp">
+                                            <label class="taskTitle" for="titulo">Titulo:</label><br>
+                                            <input class="form-control" type="text" placeholder="Titulo" name="titulo"
+                                                   aria-describedby="tituloHelp" id="titulo">
                                         </div>
                                     </div>
                                     <!-- Task Body -->
@@ -54,12 +56,12 @@
                                             <input class="form-control" type="text"
                                                    placeholder="A brief description of the task"
                                                    style="width: 96%; min-height: 10%;" name="corpo"
-                                                   aria-describedby="corpoHelp">
+                                                   aria-describedby="corpoHelp" id="corpo">
                                         </div>
                                     </div>
 
                                     <!-- Submit -->
-                                    <div class="row">
+                                    <div class="row d-flex justify-content-center">
                                         <div class="col-md-6"
                                              style="margin-left: 2%; padding-top: 2%; padding-bottom: 2%;">
                                             <button type="submit" class="pillBtn-light">Create task</button>
@@ -81,12 +83,16 @@
         <div class="row" style="margin-top: 10px;">
             <!-- Tarefas Iniciadas -->
             <div class="col-md-6" style="overflow-y: auto; overflow-x: hidden; height: 65vh;">
-                {% include 'to do task.html' %}
+            {% for task in UserTasks %}
+                {% include 'listTasks.html' %}
+            {% endfor %}
             </div>
 
             <!-- Tarefas Prontas -->
             <div class="col-md-6" style="overflow-y: auto; overflow-x: hidden; height: 65vh;">
-                {% include 'done task.html' %}
+            {% for task in DoneTasks %}
+                {% include 'listTasks.html' %}
+            {% endfor %}
             </div>
         </div>
 

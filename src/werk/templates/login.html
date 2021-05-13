@@ -14,44 +14,43 @@
 
     <form method="post">
         {% csrf_token %}
-        <div class="row">
-            <div class="col-9">
-                <label for="usernameInput" style="text-align: left;">User:</label>
+        <div class="row d-flex justify-content-center">
+            <div class="col-10">
+                <label for="usernameInput" style="text-align: left;">Usuario:</label>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
+        <div class="row d-flex justify-content-center">
+            <div class="col-10">
                 <input type="text" id="usernameInput" name="username" placeholder="username"/>
             </div>
         </div>
 
 
-        <div class="row">
-            <div class="col-9">
-                <label for="passwordInput" style="text-align: left;">Password:</label>
+        <div class="row d-flex justify-content-center">
+            <div class="col-10">
+                <label for="passwordInput" style="text-align: left;">Senha:</label>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
+        <div class="row d-flex justify-content-center">
+            <div class="col-10">
                 <input type="password" id="passwordInput" name="password" placeholder="**********"/>
             </div>
         </div>
         <div class="row">
-            <div class="col-11" style="text-align: right;">
-                <a class="action" href="#">Forgot your password?</a>
+            <div class="col-10" style="text-align: right;">
+                <a class="action" href="#">Esqueceu sua senha?</a>
             </div>
         </div>
         <br>
         <br>
-        <div class="row">
-            <div class="col-12">
-                <input type="submit" class="entrarBtn" value="LOGIN"/>
+        <div class="row d-flex justify-content-center">
+            <div class="col-10">
+                <input type="submit" class="entrarBtn" value="ENTRAR"/>
             </div>
         </div>
     </form>
 
-    <div class="row">
-        <div class="col-1"></div>
+    <div class="row d-flex justify-content-center">
         <div class="col-4">
             <div class="line"></div>
         </div>
@@ -63,12 +62,10 @@
         <div class="col-4">
             <div class="line"></div>
         </div>
-        <div class="col-1"></div>
     </div>
 
-    <div class="row">
-        <div class="col-1"></div>
-        <div class="col-11">
+    <div class="row d-flex justify-content-center">
+        <div class="col-10">
             <a class="entrarBtn" href="https://www.google.com">
                 <div class="row">
                     <div class="col-1"></div>
