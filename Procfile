@@ -1,1 +1,1 @@
-web: gunicorn werk_project.wsgi
+web: gunicorn --chdir src werk_project.wsgi
